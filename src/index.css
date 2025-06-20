@@ -6,9 +6,9 @@
 
 @font-face {
   font-family: 'SF-Pro';
-  src: url('/assets/fonts/SF-Pro.ttf') format('truetype');
+  src: url('/fonts/SF-Pro.ttf') format('truetype');
   font-family: 'Hasiant';
-  src: url('/assets/fonts/Hasiant.ttf') format('truetype');
+  src: url('/fonts/Hasiant.ttf') format('truetype');
 
 }
 

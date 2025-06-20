@@ -7,8 +7,8 @@
 
 
 @font-face {
-  font-family: 'SF-Pro';
-  src: url('/fonts/SF-Pro.ttf') format('truetype');
+  font-family: 'SFpro';
+  src: url('/fonts/SFpro.otf') format('truetype');
 }
 
 @font-face {
@@ -21,7 +21,7 @@
 
 body{
   margin:0;
-  font-family: 'SF Pro', sans-serif;
+  font-family: 'SFpro';
   font-weight: 500; /* Medium weight */
   font-stretch: expanded;
   color: #ffffff; 

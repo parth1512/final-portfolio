@@ -4,12 +4,16 @@
   background-color: #111111;
 }
 
+
+
 @font-face {
   font-family: 'SF-Pro';
   src: url('/fonts/SF-Pro.ttf') format('truetype');
+}
+
+@font-face {
   font-family: 'Hasiant';
   src: url('/fonts/Hasiant.ttf') format('truetype');
-
 }
 
 

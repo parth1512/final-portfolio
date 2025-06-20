@@ -7,7 +7,12 @@ export default defineConfig({
   assetsInclude: ['**/*.glb', '**/*.png', '**/*.ttf'], // Add support for .glb, .png, and .ttf files
   build: {
     rollupOptions: {
-      external: ['@react-three/fiber'], // Explicitly externalize @react-three/fiber
+      external: ['@react-three/fiber'], // Exclude @react-three/fiber from the bundle
+      output: {
+        manualChunks: {
+          internalDeps: ['@react-three/drei', '@react-three/rapier'], // Group internal dependencies into a chunk
+        },
+      },
     },
   },
 });

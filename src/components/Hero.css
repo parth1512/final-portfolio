@@ -15,6 +15,11 @@
     object-fit: cover; /* Ensure proper fit */
 }
 
+@font-face {
+    font-family: 'Hasiant';
+    src: url('/assets/fonts/Hasiant.ttf') format('truetype');
+    
+}
 .greet {
     background-color: transparent;
     z-index: 1;

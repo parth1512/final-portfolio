@@ -1,0 +1,101 @@
+/* Desktop Layout */
+.navbar {
+    display: flex; /* Arrange items in a row */
+    justify-content: space-between; /* Push logo and list to opposite sides */
+    align-items: center; /* Vertically align items */
+    padding: 10px 20px; /* Add padding for spacing */
+     background-color: #111111;/* Background color to make it stand out */
+    position: sticky; /* Make the navbar sticky */
+    top: 0; /* Stick to the top of the page */
+    z-index: 1000; /* Ensure it stays above other elements */
+  }
+  
+  .Logo img {
+    height: 40px; /* Adjust logo size */
+  }
+  
+  .navbar-list {
+    background-color: transparent;
+    display: flex; /* Arrange list items in a row */
+    list-style: none; /* Remove bullet points */
+    gap: 50px; /* Add space between list items */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+
+  .navbar-item-contact{
+    background-color: transparent;
+    text-decoration: none; /* Remove underline */
+    color: #ffffff; /* Set default color to white */
+    font-size: 16px; /* Adjust font size */
+    transition: color 0.3s ease; /* Add a smooth hover effect */
+    font-weight: 100;
+  }
+  .navbar-item-contact:hover{
+    font-weight: 400;
+    background-color: transparent;
+    color: #0290ff; /* Change color to blue when hovered */
+  }
+  .navbar-item-project{
+    background-color: transparent;
+    text-decoration: none; /* Remove underline */
+    color: #ffffff; /* Set default color to white */
+    font-size: 16px; /* Adjust font size */
+    transition: color 0.3s ease; /* Add a smooth hover effect */
+    font-weight: 100;
+  }
+  .navbar-item-project:hover{
+    font-weight: 400;
+    background-color: transparent;
+    color: #0290ff; /* Change color to blue when hovered */
+  }
+  
+  .navbar-list a {
+    background-color: transparent;
+    text-decoration: none; /* Remove underline */
+    color: #ffffff; /* Set default color to white */
+    font-size: 16px; /* Adjust font size */
+    transition: color 0.3s ease; /* Add a smooth hover effect */
+    font-weight: 100;
+    cursor: pointer;
+  }
+  
+  .navbar-list a:hover {
+    cursor: pointer;
+    font-weight: 400;
+    background-color: transparent;
+    color: #0290ff; /* Change color to blue when hovered */
+  }
+  
+  
+  /* Mobile Layout */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column; /* Stack logo and menu items */
+      padding: 10px; /* Reduce padding */
+    }
+  
+    .navbar-list {
+      flex-direction: column; /* Stack menu items vertically */
+      gap: 10px; /* Reduce space between items */
+    }
+  
+    .navbar-list a {
+      font-size: 14px; /* Reduce font size */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .Logo img {
+      height: 30px; /* Adjust logo size for small screens */
+    }
+  
+    .navbar {
+      padding: 8px; /* Reduce padding for very small screens */
+    }
+  
+    .navbar-list a {
+      font-size: 12px; /* Further reduce font size */
+    }
+  }
+  

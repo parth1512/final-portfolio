@@ -1,0 +1,60 @@
+.projects-container {
+    
+    margin-top: 250px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex; /* Flexbox for horizontal alignment */
+    flex-direction: row; /* Ensures tiles are placed side by side */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: transparent; /* Transparent background */
+    z-index: 400; /* Ensure it stays below other elements */
+    gap: 20px; /* Add spacing between tiles */
+}
+
+.project-title{
+    z-index: 300;
+    background-color: transparent;
+    margin-top: -190px;
+    font-size: 9.5rem;
+    font-weight: 100;
+    letter-spacing: 3px;
+}
+
+.project-title-detail{
+  
+    background-color: transparent;
+    z-index: 200;
+    margin-right: 500px;
+    margin-top: -90px;
+    font-size: 1.5rem;
+    font-weight: 100;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.project-title-container{
+  
+    position: absolute;
+    background-color: transparent;
+    display:flex;
+    flex-direction: column;
+    align-items: left;
+    margin-left: 40px;
+}
+
+.blue-text {
+    color: #0290FF; /* Blue color for emphasis */
+    font-weight: 400;
+    background-color: transparent;
+}
+
+.gradeient2 img{
+    margin-left: 700px;
+    margin-top: -350px;
+    z-index: 100;
+    position: absolute;
+   width:700px;
+    height: 500px;
+}

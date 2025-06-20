@@ -1,0 +1,91 @@
+.about-page {
+    margin-bottom: 150px;
+    margin-left: 470px;
+    z-index: 1000;
+    position: relative;
+    width: 100%;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .about-details {
+    position: absolute;
+    z-index: 0;
+   
+  }
+  
+  .about-details h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .about-details p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  .info {
+    background-color: transparent;
+    position: absolute; /* Ensures it is placed above all other elements */
+    margin-left: 50px;
+    margin-top: -550px;
+    z-index: 1001; /* Higher than all other elements */
+  }
+  
+  .info h1 {
+    background-color: transparent;
+    font-weight: 100;
+    font-size: 9rem;
+    color: #ffffff; /* Adjust as needed */
+  }
+
+  
+
+  .info p{
+    color: #868686;
+    font-weight: 100;
+    margin-top: -8px;
+    font-size: 1.3rem;
+    background-color: transparent;
+    margin-right: 550px;
+  }
+
+  .info h2{
+    font-weight: 100;
+    margin-top: -200px;
+    font-size: 1.3rem;
+    background-color: transparent;
+    margin-right: 550px;
+  }
+
+  .blueshade {
+    font-weight: 150;
+    color: #0290FF; /* Blue shade for emphasis */
+  }
+  
+  .me-color {
+    background-color: transparent;
+    color: #666666; /* Blue shade for emphasis */
+  }
+
+.btn{
+    font-family: 'SF Pro', sans-serif;
+    background-color: transparent;
+    color:#0290FF;
+    padding: 10px 30px;
+    border: 1px solid #0290FF;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+
+  .btn:hover{
+    background-color: #0290FF;
+    color: white;
+  }

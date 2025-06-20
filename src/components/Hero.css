@@ -1,0 +1,58 @@
+.hero-container {
+    margin-left: 350px;
+    margin-top: 220px;
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Align items vertically in the center */
+    justify-content: left; /* Center items horizontally (optional) */
+    gap: 30px; /* Add space between the image and text */
+    padding: 0px; /* Optional padding for spacing */
+}
+
+.hero-container img {
+    width: 60px; /* Adjust the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Optional: Make it circular */
+    object-fit: cover; /* Ensure proper fit */
+}
+
+.greet {
+    background-color: transparent;
+    z-index: 1;
+    font-family: 'Hasiant', sans-serif;
+    font-weight: 500;
+    font-size: 7rem;
+    color: white; /* Adjust color as needed */
+    margin: 0;
+}
+
+
+.details {
+    margin-top: 0px; /* Adjust as needed */
+    position: relative; /* Ensure it is layered relative to other elements */
+    z-index: 200; /* Make it above the gradient */
+    margin-left: 350px;
+    background-color: transparent;
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Align items vertically in the center */
+    justify-content: left; /* Align text and image to the left */
+    gap: 30px; /* Add space between the elements */
+    padding: 0px;
+}
+
+.details-text {
+    letter-spacing: 0px;
+    background-color: transparent;
+    z-index: 201; /* Make sure text is visible */
+    font-size: 1.7rem;
+    font-weight: 150;
+    color: white; /* Ensure it contrasts with the background */
+}
+
+.col
+{
+    display: inline-block;
+    position: relative;
+    animation: slide-in 0.5s ease-out, slide-out 0.5s ease-out 1.5s;
+    font-weight: 320;
+    color: #0290FF;
+}

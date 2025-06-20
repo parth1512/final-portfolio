@@ -1,0 +1,119 @@
+.Banner{
+    margin-top: 150px;
+    height: 330px;
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+.Banner h1 {
+    margin-top: 40px;
+    letter-spacing: 4px;
+    font-weight: 100;
+    background-color: transparent;
+    font-size: 9rem;
+    color: #333333;
+    
+}
+
+.Banner p{
+    font-weight: 100;
+    background-color: transparent;
+    font-size: 1.3rem;
+    color: #868686;
+    margin-top: -90px;
+}
+
+.Banner span{
+    font-weight: 100;
+    background-color: transparent;
+    font-size: 1.3rem;
+    color: #0290FF;
+    margin-top: -90px;
+}
+
+.footer{
+    position: relative;
+    bottom: 0;
+    width: 50%;
+    height: 330px;
+    background-color: #111111;
+    color: #ffffff;
+    text-align: left;
+    padding: 20px;
+}
+
+.footer h2{
+    color: grey;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    font-weight: 300;
+    margin-left: 20px;
+}
+
+.footer-list{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    margin-top: 120px;
+    margin-left: -20px;
+    color: rgb(212, 212, 212);
+    background-color: transparent;
+    text-decoration: none;
+    list-style: none;
+}
+
+.footer-list a{
+    font-weight: 100;
+    font-size: 1.3rem;
+    color: rgb(222, 222, 222);
+    background-color: transparent;
+    text-decoration: none;
+    list-style: none;
+}
+
+.footer-list a:hover{
+    color: #0290FF;
+}
+
+.gradeient img {
+     /* Ensure the image is below other elements */
+    position: absolute;
+    margin-left: 980px; /* Adjust the position of the image */
+    margin-top: -320px;
+    width: auto; /* Adjust the size of the image */
+    height: 350px; /* Maintain aspect ratio */
+   
+  }
+
+  .review{
+   font-size: 1.5rem;
+    font-weight: 200;
+    background-color: transparent;
+
+  }
+
+  .review-text{
+    background-color: transparent;
+    position: absolute;
+    z-index: 3000;
+    margin-left: 880px;
+    margin-top: -80px;
+    width: 50%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  .text{
+    font-size: 0.7rem;
+    font-weight: 100;
+    color: #989898;
+    background-color: transparent;
+    position: absolute;
+    margin-top: 70px;
+    margin-right: 65px;
+    
+  }

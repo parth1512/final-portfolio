@@ -1,0 +1,36 @@
+/* Reset default styles for consistency */
+* {
+ 
+  background-color: #111111;
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  src: url('/assets/fonts/SF-Pro.ttf') format('truetype');
+  font-weight: 500; /* Medium weight */
+  font-stretch: expanded; /* Expanded variant */
+}
+
+
+
+body{
+  margin:0;
+  font-family: 'SF Pro', sans-serif;
+  font-weight: 500; /* Medium weight */
+  font-stretch: expanded;
+  color: #ffffff; 
+  width: 100%;
+  overflow-x: hidden;
+  
+
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+
+
+
+/* Optional: Centered container for content */
+

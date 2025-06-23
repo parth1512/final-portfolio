@@ -10,7 +10,7 @@ const PortfolioProject = () => {
         <div className="project-tech-stack">
           <span className="tech-tag">React JS</span>
           <span className="tech-tag">Node JS</span>
-          <span className="tech-tag">Tailwind CSS</span>
+          <span className="tech-tag">CSS</span>
         </div>
       </div>
 
@@ -26,12 +26,14 @@ const PortfolioProject = () => {
         <section className="project-section">
           <h2>Key Features</h2>
           <ul className="feature-list">
-            <li>Responsive design</li>
+            
             <li>Interactive animations</li>
             <li>Project showcase</li>
             <li>Contact form</li>
           </ul>
         </section>
+
+        
 
         <section className="project-section">
           <h2>Development Process</h2>
@@ -45,10 +47,10 @@ const PortfolioProject = () => {
         <section className="project-section">
           <h2>Links</h2>
           <div className="project-links">
-            <a href="#" className="project-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://final-portfolio-gamma-five.vercel.app/" className="project-link" target="_blank" rel="noopener noreferrer">
               Live Demo
             </a>
-            <a href="#" className="project-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/parth1512/final-portfolio" className="project-link" target="_blank" rel="noopener noreferrer">
               GitHub Repository
             </a>
           </div>

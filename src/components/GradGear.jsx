@@ -4,6 +4,8 @@
 // components/GradGear.jsx
 import React from 'react';
 import './ProjectPages.css'; // Shared styles for project pages
+import ss1 from '../assets/imgs/ss1.png';
+import ss2 from '../assets/imgs/ss2.png';
 
 const GradGear = () => {
   return (
@@ -15,6 +17,8 @@ const GradGear = () => {
           <span className="tech-tag">React JS</span>
           <span className="tech-tag">Tailwind CSS</span>
           <span className="tech-tag">Node JS</span>
+          <span className="tech-tag">OpenAI GPT-4</span>
+          <span className="tech-tag">Amazon Affiliate API</span>
         </div>
       </div>
 
@@ -22,42 +26,32 @@ const GradGear = () => {
         <section className="project-section">
           <h2>Project Overview</h2>
           <p>
-            Grad Gear is a comprehensive laptop recommendation platform designed 
-            to help students and professionals find the perfect laptop based on 
-            their specific needs, budget, and use cases.
+            Grad Gear is an AI-powered laptop recommendation platform designed to simplify the search for the perfect device. By leveraging OpenAI's GPT-4 and Amazon's Affiliate API, Grad Gear analyzes user preferences, budget, and specific needs through an interactive multi-step questionnaire. The platform delivers highly personalized laptop suggestions, complete with direct purchase links and the option to receive recommendations via email. With a modern, responsive interface and seamless user experience, Grad Gear helps students and professionals make informed decisions quickly and confidently.
           </p>
         </section>
 
         <section className="project-section">
           <h2>Key Features</h2>
           <ul className="feature-list">
-            <li>Smart recommendation algorithm</li>
-            <li>Budget-based filtering</li>
-            <li>Performance comparison tools</li>
-            <li>User reviews and ratings</li>
+            <li>Smart recommendation algorithm powered by OpenAI GPT-4</li>
+            <li>Budget-based filtering with Amazon Affiliate API integration</li>
+            <li>Receive personalized laptop recommendations directly to your email</li>
+            <li>Modern, responsive UI with real-time validation and smooth animations</li>
           </ul>
         </section>
 
         <section className="project-section">
           <h2>Screenshots</h2>
           <div className="project-gallery">
-            {/* Add your project screenshots here */}
-            <div className="screenshot-placeholder">
-              Screenshot 1
-            </div>
-            <div className="screenshot-placeholder">
-              Screenshot 2
-            </div>
+            <img src={ss2} alt="Grad Gear Screenshot 1" className="project-screenshot" />
+            <img src={ss1} alt="Grad Gear Screenshot 2" className="project-screenshot" />
           </div>
         </section>
 
         <section className="project-section">
           <h2>Links</h2>
           <div className="project-links">
-            <a href="#" className="project-link" target="_blank" rel="noopener noreferrer">
-              Live Demo
-            </a>
-            <a href="#" className="project-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/parth1512/GradGear-" className="project-link" target="_blank" rel="noopener noreferrer">
               GitHub Repository
             </a>
           </div>

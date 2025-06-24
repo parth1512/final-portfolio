@@ -161,4 +161,14 @@
     color: white;
   }
   
+  .project-screenshot {
+    max-width: 100%;
+    width: 400px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(2, 144, 255, 0.15);
+    display: block;
+    margin: 0 auto;
+  }
+  
   

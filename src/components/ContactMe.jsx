@@ -22,7 +22,7 @@ const ContactMe = () => {
                 <a href="https://github.com/parth1512" target="_blank" >Github</a>
             </li>
             <li>
-                <a href="https://drive.google.com/file/d/1mo9VIKRnIMWIb6G-yQLHN_MiG6hHmTfW/view?usp=sharing"target="_blank">Resume</a>
+                <a href="https://drive.google.com/file/d/1DO7FOrbJB5SF9eBKPSFz0KcBhA-o-Qbm/view?usp=sharing"target="_blank">Resume</a>
             </li>
         </ul>
 

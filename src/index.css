@@ -27,8 +27,7 @@ body{
   color: #ffffff; 
   width: 100%;
   overflow-x: hidden;
-  
-
+  margin-left: 0px;
 }
 
 html{
@@ -39,4 +38,20 @@ html{
 
 
 /* Optional: Centered container for content */
+
+@media (max-width: 1024px) {
+  body {
+    padding: 0 5px;
+    font-size: 1rem;
+    width: 100vw;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0 2px;
+    font-size: 0.95rem;
+    width: 100vw;
+  }
+}
 

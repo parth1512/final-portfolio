@@ -82,3 +82,32 @@
   /* Allow clicks to pass through */
   pointer-events: none;
 }
+
+@media (max-width: 1024px) {
+  .tilted-card-figure {
+    width: 250px;
+    height: 250px;
+  }
+  .tilted-card-img {
+    width: 250px;
+    height: 250px;
+  }
+  .tilted-card-demo-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tilted-card-figure {
+    width: 90vw;
+    height: auto;
+    min-height: 180px;
+  }
+  .tilted-card-img {
+    width: 90vw;
+    height: 180px;
+  }
+  .tilted-card-demo-text {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,21 @@
+.gradient-container {
+    position: absolute;
+    top: 30px;
+    right: -160px; /* Move it 50px further to the right */
+    width: 50%; /* Cover the right half of the page */
+    height: 100%;
+    z-index: 0; 
+    overflow: hidden;/* Ensure the gradient is behind other content */
+}
+
+@media (max-width: 1024px) {
+  .gradient-container {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .gradient-container {
+    display: none !important;
+  }
+} 

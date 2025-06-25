@@ -114,7 +114,7 @@ const AnimatedBlueGradient = () => {
           }
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           .gradient-wrapper {
             width: 400px;
             height: 320px;
@@ -126,7 +126,7 @@ const AnimatedBlueGradient = () => {
           }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
           .gradient-wrapper {
             width: 320px;
             height: 260px;
@@ -135,6 +135,18 @@ const AnimatedBlueGradient = () => {
           .gradient-piece {
             width: 160px;
             height: 160px;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .gradient-wrapper {
+            width: 280px;
+            height: 220px;
+          }
+          
+          .gradient-piece {
+            width: 140px;
+            height: 140px;
           }
         }
       `}</style>

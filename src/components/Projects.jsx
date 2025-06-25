@@ -21,7 +21,7 @@ const Projects = () => {
   };
 
   return (
-    <>
+    <div className="projects-responsive-wrapper">
       {/* Add a test button to verify navigation works */}
       
       <div className="projects-container">
@@ -105,7 +105,7 @@ const Projects = () => {
       <div className="gradeient2">
         <img src={Gradient} alt="Gradient" />
       </div>
-    </>
+    </div>
   );
 };
 

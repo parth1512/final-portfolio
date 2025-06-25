@@ -133,3 +133,7 @@
     margin-right: 0;
   }
 }
+
+.info, .info h2, .info p, .btn {
+  font-family: 'SFpro', sans-serif;
+}

@@ -50,7 +50,11 @@ const GradGear = () => {
 
         <section className="project-section">
           <h2>Links</h2>
+          
           <div className="project-links">
+          <a href="https://gradgear-1-frontend.onrender.com" className="project-link" target="_blank" rel="noopener noreferrer">
+              Live Demo
+            </a>
             <a href="https://github.com/parth1512/GradGear-" className="project-link" target="_blank" rel="noopener noreferrer">
               GitHub Repository
             </a>

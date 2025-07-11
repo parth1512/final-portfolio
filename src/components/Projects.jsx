@@ -5,6 +5,7 @@ import TiltedCard from './TiltedCard';
 import './Project.css';
 import Gradient from '../assets/imgs/Gradient.png';
 import Frame from '../assets/imgs/Frame.jpg';
+import port from '../assets/imgs/port.jpg';
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const Projects = () => {
 
   return (
     <div className="projects-responsive-wrapper">
-      {/* Add a test button to verify navigation works */}
+      
       
       <div className="projects-container">
         <TiltedCard
@@ -48,7 +49,7 @@ const Projects = () => {
         />
         
         <TiltedCard
-          imageSrc={Frame}
+          imageSrc={port}
           altText="Portfolio Project"
           captionText="React JS , Node JS , Tailwind CSS"
           containerHeight="300px"

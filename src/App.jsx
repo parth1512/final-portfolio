@@ -33,6 +33,40 @@ const ScrollHandler = () => {
   return null;
 };
 
+const waitForFonts = async () => {
+  if (!document.fonts) {
+    // Fallback if Font Loading API is not available
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    return;
+  }
+
+  try {
+    // Wait for fonts defined in CSS @font-face to load
+    // This respects the existing CSS font declarations
+    await document.fonts.ready;
+    
+    // Double check both fonts are actually loaded
+    let attempts = 0;
+    const maxAttempts = 10;
+    
+    while (attempts < maxAttempts) {
+      const sfproReady = document.fonts.check('1em SFpro');
+      const hasiantReady = document.fonts.check('1em Hasiant');
+      
+      if (sfproReady && hasiantReady) {
+        break;
+      }
+      
+      await new Promise(resolve => setTimeout(resolve, 100));
+      attempts++;
+    }
+  } catch (error) {
+    console.error('Error waiting for fonts:', error);
+    // Fallback: wait a bit longer if font checking fails
+    await new Promise(resolve => setTimeout(resolve, 1500));
+  }
+};
+
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
@@ -40,23 +74,21 @@ const App = () => {
   useEffect(() => {
     const loadAll = async () => {
       try {
-        // Wait for fonts to load if FontFace API is available
-        if (document.fonts) {
-          await document.fonts.ready;
-        }
+        // Wait for fonts defined in CSS to load (without overriding them)
+        await waitForFonts();
         
         // Small delay for smooth transition
         setTimeout(() => {
           setFadeOut(true);
           setTimeout(() => setLoading(false), 400);
-        }, 800);
+        }, 300);
       } catch (error) {
         console.error('Error loading:', error);
         // Fallback if anything fails
         setTimeout(() => {
           setFadeOut(true);
           setTimeout(() => setLoading(false), 400);
-        }, 1000);
+        }, 1500);
       }
     };
     loadAll();

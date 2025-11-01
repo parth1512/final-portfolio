@@ -43,8 +43,12 @@ const GradGear = () => {
         <section className="project-section">
           <h2>Screenshots</h2>
           <div className="project-gallery">
-            <img src={ss2} alt="Grad Gear Screenshot 1" className="project-screenshot" />
-            <img src={ss1} alt="Grad Gear Screenshot 2" className="project-screenshot" />
+            <a href={ss2} target="_blank" rel="noopener noreferrer">
+              <img src={ss2} alt="Grad Gear Screenshot 1" className="project-screenshot" />
+            </a>
+            <a href={ss1} target="_blank" rel="noopener noreferrer">
+              <img src={ss1} alt="Grad Gear Screenshot 2" className="project-screenshot" />
+            </a>
           </div>
         </section>
 

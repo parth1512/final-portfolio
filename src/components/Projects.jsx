@@ -5,6 +5,7 @@ import TiltedCard from './TiltedCard';
 import './Project.css';
 import Gradient from '../assets/imgs/Gradient.png';
 import Frame from '../assets/imgs/Frame.jpg';
+import Frame2 from '../assets/imgs/Frame2.jpg';
 import port from '../assets/imgs/port.jpg';
 
 const Projects = () => {
@@ -71,8 +72,8 @@ const Projects = () => {
         />
         
         <TiltedCard
-          imageSrc={Frame}
-          altText="Rate My Dorm"
+          imageSrc={Frame2}
+          altText="Concept Designs"
           captionText="HTML, CSS, JavaScript"
           containerHeight="300px"
           containerWidth="300px"
@@ -84,10 +85,10 @@ const Projects = () => {
           showTooltip={true}
           displayOverlayContent={true}
           overlayContent={
-            <p className="tilted-card-demo-text">Rate My Dorm</p>
+            <p className="tilted-card-demo-text">Concept Designs</p>
           }
           onClick={() => {
-            console.log('TiltedCard onClick triggered for Rate My Dorm'); // Debug log
+            console.log('TiltedCard onClick triggered for Concept Designs'); // Debug log
             handleCardClick('/rate-my-dorm');
           }}
         />

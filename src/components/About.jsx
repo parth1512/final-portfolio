@@ -1,21 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Lanyard from '../components/Lanyard.jsx';
 import './About.css';
-import { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const About = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
-  // Redirect to home if About is loaded directly (on reload)
-  useEffect(() => {
-    if (location.pathname === '/about' && window.performance) {
-      if (performance.getEntriesByType('navigation')[0]?.type === 'reload') {
-        navigate('/', { replace: true });
-      }
-    }
-  }, [location, navigate]);
 
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to the top

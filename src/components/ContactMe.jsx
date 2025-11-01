@@ -16,13 +16,13 @@ const ContactMe = () => {
                 <a href="mailto:parthjadhav1512@gmail.com?subject=Your Subject&body=Your Message" >Mail</a>
             </li>
             <li>
-                <a href="https://linkedin.com/in/parthjadhav2004" target="_blank">Linkedin</a>
+                <a href="https://www.linkedin.com/in/parthjadhav2004/" target="_blank">Linkedin</a>
             </li>
             <li>
                 <a href="https://github.com/parth1512" target="_blank" >Github</a>
             </li>
             <li>
-                <a href="https://drive.google.com/file/d/1DO7FOrbJB5SF9eBKPSFz0KcBhA-o-Qbm/view?usp=sharing"target="_blank">Resume</a>
+                <a href="https://drive.google.com/file/d/1CsY4vZPukD9tH4Gqdva-f_83NrQRnOpE/view?usp=drive_link"target="_blank">Resume</a>
             </li>
         </ul>
 

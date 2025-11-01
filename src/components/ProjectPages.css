@@ -161,15 +161,26 @@
     color: white;
   }
   
-  .project-screenshot {
-    max-width: 100%;
-    width: 400px;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 16px rgba(2, 144, 255, 0.15);
-    display: block;
-    margin: 0 auto;
-  }
+.project-screenshot {
+  max-width: 100%;
+  width: 400px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(2, 144, 255, 0.15);
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.project-gallery a {
+  display: block;
+}
+
+.project-screenshot:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(2, 144, 255, 0.3);
+}
   
   @media (max-width: 1024px) {
     .project-page-container {

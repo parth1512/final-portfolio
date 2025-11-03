@@ -8,6 +8,7 @@ import GradGear from './components/GradGear.jsx';
 import PortfolioProject from './components/PortfolioProject.jsx';
 import RateMyDorm from './components/RateMyDorm.jsx';
 import Loader from './components/Loader.jsx';
+import CustomCursor from './components/CustomCursor.jsx';
 
 import './App.css';
 
@@ -41,23 +42,27 @@ const waitForFonts = async () => {
   }
 
   try {
-    // Wait for fonts defined in CSS @font-face to load
-    // This respects the existing CSS font declarations
-    await document.fonts.ready;
-    
-    // Double check both fonts are actually loaded
+    // Proactively load the specific faces we use
+    const loads = [
+      document.fonts.load('500 1em SFpro'),
+      document.fonts.load('normal 1em SFpro'),
+      document.fonts.load('normal 1em Hasiant')
+    ];
+    // Also wait for general readiness
+    loads.push(document.fonts.ready);
+
+    // Add a timeout guard to avoid hanging forever in bad network
+    const timeout = new Promise(resolve => setTimeout(resolve, 4000));
+    await Promise.race([Promise.all(loads), timeout]);
+
+    // Verify both are present; if not, poll briefly
     let attempts = 0;
-    const maxAttempts = 10;
-    
+    const maxAttempts = 15;
     while (attempts < maxAttempts) {
-      const sfproReady = document.fonts.check('1em SFpro');
+      const sfproReady = document.fonts.check('500 1em SFpro') || document.fonts.check('1em SFpro');
       const hasiantReady = document.fonts.check('1em Hasiant');
-      
-      if (sfproReady && hasiantReady) {
-        break;
-      }
-      
-      await new Promise(resolve => setTimeout(resolve, 100));
+      if (sfproReady && hasiantReady) break;
+      await new Promise(resolve => setTimeout(resolve, 120));
       attempts++;
     }
   } catch (error) {
@@ -103,6 +108,7 @@ const App = () => {
       )}
       {!loading && (
         <Router>
+          <CustomCursor />
           <ScrollHandler />
           <Navbar />
           <Routes>

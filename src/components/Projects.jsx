@@ -51,7 +51,7 @@ const Projects = () => {
         
         <TiltedCard
           imageSrc={port}
-          altText="Portfolio Project"
+          altText="Yantra Hack"
           captionText="React JS , Node JS , Tailwind CSS"
           containerHeight="300px"
           containerWidth="300px"
@@ -63,7 +63,7 @@ const Projects = () => {
           showTooltip={true}
           displayOverlayContent={true}
           overlayContent={
-            <p className="tilted-card-demo-text">Portfolio Project</p>
+            <p className="tilted-card-demo-text">Yantra Hack</p>
           }
           onClick={() => {
             console.log('TiltedCard onClick triggered for Portfolio'); // Debug log

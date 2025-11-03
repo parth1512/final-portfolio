@@ -21,7 +21,9 @@ React.useEffect(() => {
     
     <div className="hero">
     <div className="hero-container">
+    <div className="pfp" aria-label="Profile picture">
     <img src={pp} alt="pp" />
+    </div>
     <p className="greet">Hola! i am parth</p>
     </div>
     <div className="details">

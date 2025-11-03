@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ProjectPages.css';
 import ss3 from '../assets/imgs/ss3.png';
 import ss4 from '../assets/imgs/ss4.png';
 
 const RateMyDorm = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, []);
+
   return (
     <div className="project-page-container">
       <div className="project-hero">

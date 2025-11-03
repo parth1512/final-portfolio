@@ -1,0 +1,40 @@
+.custom-cursor-layer{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: transparent !important; /* override global * background */
+}
+
+.cursor-dot{
+  position: fixed;
+  top: 0; left: 0;
+  width: 6px; height: 6px;
+  margin-top: -3px; margin-left: -3px;
+  border-radius: 50%;
+  background: #e6f3ff;
+  box-shadow: 0 0 8px rgba(2,144,255,.35);
+  mix-blend-mode: screen;
+}
+
+.cursor-ring{
+  position: fixed;
+  top: 0; left: 0;
+  width: 28px; height: 28px;
+  margin-top: -14px; margin-left: -14px;
+  border-radius: 50%;
+  border: 1px solid rgba(2,144,255,.5);
+  background: radial-gradient(60% 60% at 50% 50%, rgba(2,144,255,.15), transparent 70%);
+  transition: transform .15s ease, width .15s ease, height .15s ease, border-color .15s ease;
+}
+
+.cursor-ring.is-active{
+  width: 40px; height: 40px;
+  margin-top: -20px; margin-left: -20px;
+  border-color: rgba(2,144,255,.8);
+}
+
+/* Hide native cursor when custom cursor is enabled */
+.custom-cursor-enabled{ cursor: none; }
+
+

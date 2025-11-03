@@ -17,12 +17,69 @@
     padding: 0px; /* Optional padding for spacing */
 }
 
-.hero-container img {
-    width: 60px; /* Adjust the size of the image */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50%; /* Optional: Make it circular */
-    object-fit: cover; /* Ensure proper fit */
+.pfp{
+    position: relative;
+    width: 68px;
+    height: 68px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    isolation: isolate;
+    z-index: 0;
+    overflow: visible; /* allow glow to extend */
 }
+
+.pfp::before{
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: inherit;
+    background: conic-gradient(from 180deg, #0290FF, #5b2be8, #02c2ff, #0290FF);
+    filter: blur(6px);
+    opacity: 0; /* hidden by default */
+    z-index: 0;
+    pointer-events: none;
+    animation: rotate 4s linear infinite;
+    transition: opacity .25s ease;
+}
+
+.pfp::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(60% 60% at 50% 50%, rgba(2,144,255,.35), transparent 70%);
+    filter: blur(8px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0; /* hidden by default */
+    transition: opacity .25s ease;
+}
+
+.pfp img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(2,144,255,.25);
+    transform: translateZ(0);
+    transition: transform .2s ease;
+}
+
+.pfp:hover img{
+    transform: scale(1.03);
+    box-shadow: 0 0 0 1px rgba(2,144,255,.25), 0 0 20px rgba(2,144,255,.22), 0 6px 18px rgba(2,144,255,.18);
+}
+
+/* Show glow when hovering avatar */
+.pfp:hover::before,
+.pfp:hover::after{ opacity: .25; }
+
+/* Also show glow when hovering the greeting text */
+.hero-container:has(.greet:hover) .pfp::before,
+.hero-container:has(.greet:hover) .pfp::after{ opacity: .35; }
+
+@keyframes rotate{ to{ transform: rotate(360deg); } }
 
 @font-face {
     font-family: 'Hasiant';

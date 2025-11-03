@@ -31,7 +31,7 @@ body{
 }
 
 html{
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* custom rAF smooth scrolling handles easing */
 }
 
 

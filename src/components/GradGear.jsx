@@ -2,12 +2,16 @@
 // Create these files in your components folder:
 
 // components/GradGear.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ProjectPages.css'; // Shared styles for project pages
 import ss1 from '../assets/imgs/ss1.png';
 import ss2 from '../assets/imgs/ss2.png';
 
 const GradGear = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, []);
+
   return (
     <div className="project-page-container">
       <div className="project-hero">

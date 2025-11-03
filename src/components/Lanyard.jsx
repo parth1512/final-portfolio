@@ -3,9 +3,9 @@
 /* eslint-disable react/no-unknown-property */
 'use client';
 import { OrbitControls } from '@react-three/drei';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, Suspense } from 'react';
 import { Canvas, extend, useFrame } from '@react-three/fiber';
-import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
+import { useGLTF, useTexture, Environment, Lightformer, Html, useProgress } from '@react-three/drei';
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 
@@ -27,18 +27,31 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
   onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), 0)} // Set alpha to 0 for transparency
 >
   <ambientLight intensity={Math.PI} />
-  <Physics gravity={gravity} timeStep={1 / 60}>
-    <Band />
-  </Physics>
-  <Environment blur={0.75}>
-    <Lightformer intensity={2} color="white" position={[0, -1, 5]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
-    <Lightformer intensity={3} color="white" position={[-1, -1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
-    <Lightformer intensity={3} color="white" position={[1, 1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
-    <Lightformer intensity={10} color="white" position={[-10, 0, 14]} rotation={[0, Math.PI / 2, Math.PI / 3]} scale={[100, 10, 1]} />
-  </Environment>
+  <Suspense fallback={<CanvasLoader /> }>
+    <Physics gravity={gravity} timeStep={1 / 60}>
+      <Band />
+    </Physics>
+    <Environment blur={0.75}>
+      <Lightformer intensity={2} color="white" position={[0, -1, 5]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
+      <Lightformer intensity={3} color="white" position={[-1, -1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
+      <Lightformer intensity={3} color="white" position={[1, 1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
+      <Lightformer intensity={10} color="white" position={[-10, 0, 14]} rotation={[0, Math.PI / 2, Math.PI / 3]} scale={[100, 10, 1]} />
+    </Environment>
+  </Suspense>
 </Canvas>
 
     </div>
+  );
+}
+function CanvasLoader() {
+  const { progress } = useProgress();
+  return (
+    <Html center>
+      <div className="model-loader">
+        <div className="loader-ring" />
+        <p className="loader-text">Loading {Math.round(progress)}%</p>
+      </div>
+    </Html>
   );
 }
 function Band({ maxSpeed = 50, minSpeed = 0 }) {

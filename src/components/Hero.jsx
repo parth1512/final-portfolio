@@ -27,7 +27,9 @@ React.useEffect(() => {
     <p className="greet">Hola! i am parth</p>
     </div>
     <div className="details">
-        <p className="details-text">I <span className="col">{text}</span> seamless user interface, websites and create intuitive <br></br>experiences for the digital world.</p>
+        <p className="details-text">
+          I <span className="col">{text}</span> seamless user interface, websites and create intuitive <br></br>experiences for the digital world.
+        </p>
     </div>
     </div>
 

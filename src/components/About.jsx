@@ -26,8 +26,15 @@ const About = () => {
     }
   };
 
+  const handleGoBack = () => {
+    navigate('/');
+  };
+
   return (
     <>
+      <button className="about-back-button" onClick={handleGoBack}>
+        ← Back
+      </button>
     <div className="about-page">
       <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} />
       </div>

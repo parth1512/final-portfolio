@@ -1,0 +1,87 @@
+.modern-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: 'SFpro', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent !important;
+  background-color: transparent !important;
+  padding: 4px 0;
+}
+
+.logo-text {
+  display: inline-flex;
+  align-items: baseline;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.logo-p {
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  background: transparent !important;
+  background-color: transparent !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-dot {
+  font-size: clamp(1.5rem, 2.2vw, 1.8rem);
+  font-weight: 400;
+  color: #0290FF;
+  line-height: 0.8;
+  background: transparent !important;
+  background-color: transparent !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 0 4px rgba(2, 144, 255, 0.3));
+}
+
+.logo-design {
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-weight: 300;
+  color: #a0a0a0;
+  letter-spacing: 1.5px;
+  margin-left: 2px;
+  background: transparent !important;
+  background-color: transparent !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modern-logo:hover .logo-p {
+  color: #0290FF;
+  transform: scale(1.05);
+}
+
+.modern-logo:hover .logo-dot {
+  color: #02c2ff;
+  transform: scale(1.2);
+}
+
+.modern-logo:hover .logo-design {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .logo-p,
+  .logo-dot {
+    font-size: 1.3rem;
+  }
+  
+  .logo-design {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-p,
+  .logo-dot {
+    font-size: 1.1rem;
+  }
+  
+  .logo-design {
+    font-size: 0.8rem;
+  }
+}
+

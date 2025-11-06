@@ -1,15 +1,25 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ProjectPages.css';
 import ss3 from '../assets/imgs/ss3.png';
 import ss4 from '../assets/imgs/ss4.png';
 
 const RateMyDorm = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, []);
 
+  const handleGoBack = () => {
+    navigate('/');
+  };
+
   return (
     <div className="project-page-container">
+      <button className="project-back-button" onClick={handleGoBack}>
+        ← Back
+      </button>
       <div className="project-hero">
         <h1 className="project-title2">Mobile App Concept Redesigns</h1>
         <p className="project-subtitle">A UX/UI Case Study (Spotify & Apple Pay)</p>
@@ -78,11 +88,10 @@ const RateMyDorm = () => {
         <section className="project-section">
           <h2>Links</h2>
           <div className="project-links">
-            {/* Update href="#" with your actual links */}
-            <a href="#" className="project-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.figma.com/design/gloI2hM0JpdsyIkoiZyPfr/YANTRA-HACK?node-id=23-2&t=AivwLGg5JwEpKSUK-1" className="project-link" target="_blank" rel="noopener noreferrer">
               View Case Study
             </a>
-            <a href="#" className="project-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.figma.com/design/gloI2hM0JpdsyIkoiZyPfr/YANTRA-HACK?node-id=23-2&t=AivwLGg5JwEpKSUK-1" className="project-link" target="_blank" rel="noopener noreferrer">
               Figma Prototype
             </a>
           </div>

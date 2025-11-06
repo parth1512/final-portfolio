@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import logo from '../assets/logos/logo.png';
+import Logo from './Logo.jsx';
 import './Navbar.css';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleLogoClick = (e) => {
     e.preventDefault(); // Prevent default anchor behavior
@@ -40,17 +41,64 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Close menu when clicking outside (for mobile)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMenuOpen && !event.target.closest('.navbar')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
+  // Handle scroll detection for navbar border
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+      setIsScrolled(scrollPosition > 10); // Show border after 10px scroll
+    };
+
+    // Check initial scroll position
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Determine active route
+  const isProjectsActive = location.pathname === '/' && window.location.hash === '#project';
+  const isContactActive = location.pathname === '/' && window.location.hash === '#contact';
+
   return (
-    <div className="navbar">
-      <div className="Logo">
-        {/* Handle logo click for scroll or navigation */}
-        <a href="/" onClick={handleLogoClick}>
-          <img src={logo} alt="Logo" />
-        </a>
+    <div className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="Logo" onClick={handleLogoClick}>
+        <Logo />
       </div>
       
       {/* Hamburger Menu Button */}
-      <div className="hamburger-menu" onClick={toggleMenu}>
+      <div 
+        className="hamburger-menu" 
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            toggleMenu();
+          }
+        }}
+      >
         <div className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></div>
         <div className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></div>
         <div className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></div>
@@ -59,16 +107,21 @@ const Navbar = () => {
       {/* Desktop Menu */}
       <ul className={`navbar-list ${isMenuOpen ? 'mobile-open' : ''}`}>
         <li className="navbar-item">
-          <Link to="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
+          <Link 
+            to="/about" 
+            onClick={() => setIsMenuOpen(false)}
+          >
+            About
+          </Link>
         </li>
         <li
-          className="navbar-item-project"
+          className={`navbar-item-project ${isProjectsActive ? 'active' : ''}`}
           onClick={() => handleNavigation('project')}
         >
           Projects
         </li>
         <li
-          className="navbar-item-contact"
+          className={`navbar-item-contact ${isContactActive ? 'active' : ''}`}
           onClick={() => handleNavigation('contact')}
         >
           Contact

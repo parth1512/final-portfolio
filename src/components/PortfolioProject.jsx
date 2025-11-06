@@ -1,15 +1,25 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ProjectPages.css';
 import projectShot1 from '../assets/imgs/ss5.png';
 import projectShot2 from '../assets/imgs/ss6.png';
 
 const PortfolioProject = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, []);
 
+  const handleGoBack = () => {
+    navigate('/');
+  };
+
   return (
     <div className="project-page-container">
+      <button className="project-back-button" onClick={handleGoBack}>
+        ← Back
+      </button>
       <div className="project-hero">
         <h1 className="project-title2">Yantra Hack Registration Website</h1>
         <p className="project-subtitle">Official hackathon registration platform</p>

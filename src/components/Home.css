@@ -1,0 +1,230 @@
+/* Modern Home Page Enhancements */
+
+/* Smooth section transitions with parallax effect */
+.projects-section,
+.contact-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent !important;
+  background-color: transparent !important;
+  will-change: opacity, transform;
+}
+
+.projects-section.visible,
+.contact-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Subtle section dividers with animation */
+.projects-section {
+  position: relative;
+}
+
+.projects-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(2, 144, 255, 0.5) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 1s ease;
+}
+
+.projects-section.visible::before {
+  opacity: 1;
+  transform: translateX(-50%) scaleX(1);
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(2, 144, 255, 0.5) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 1s ease;
+}
+
+.contact-section.visible::before {
+  opacity: 1;
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Enhanced hero section with subtle animation */
+.hero {
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* Parallax effect for hero on scroll */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top, rgba(2, 144, 255, 0.05) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll progress indicator with glow */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #0290FF 0%, #6C5CE7 50%, #02c2ff 100%);
+  transform-origin: left;
+  z-index: 1001;
+  transition: transform 0.1s ease-out;
+  box-shadow: 0 0 10px rgba(2, 144, 255, 0.5);
+}
+
+/* Stagger animation for project cards */
+.projects-container.visible .project-card-modern {
+  animation: cardFadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.projects-container.visible .project-card-modern:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.projects-container.visible .project-card-modern:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.projects-container.visible .project-card-modern:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Enhanced text reveal animation */
+.details-text {
+  position: relative;
+}
+
+/* Enhanced section spacing with breathing room */
+.projects-section,
+.contact-section {
+  position: relative;
+  padding-top: 40px;
+}
+
+/* Subtle background gradient overlay on scroll */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(2, 144, 255, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 80% 50%, rgba(108, 92, 231, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+body.scrolled::before {
+  opacity: 1;
+}
+
+/* Enhanced greeting text with subtle pulse */
+.greet {
+  position: relative;
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced project title reveal */
+.projects-section-title {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-section.visible .projects-section-title {
+  animation: slideInLeft 0.8s ease-out 0.3s both;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Subtle floating animation for hero elements */
+.hero-container {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Enhanced contact section reveal */
+.contact-section.visible {
+  animation: fadeInScale 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Enhanced scroll indicator visibility */
+.scroll-progress {
+  backdrop-filter: blur(2px);
+}
+

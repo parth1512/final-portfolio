@@ -15,6 +15,10 @@
     justify-content: flex-start; /* Align items to the left */
     gap: 30px; /* Add space between the image and text */
     padding: 0px; /* Optional padding for spacing */
+    position: relative;
+    z-index: 20;
+    background-color: transparent !important;
+    background: transparent !important;
 }
 
 .pfp{
@@ -81,23 +85,39 @@
 
 @keyframes rotate{ to{ transform: rotate(360deg); } }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @font-face {
     font-family: 'Hasiant';
     src: url('/assets/fonts/Hasiant.ttf') format('truetype');
     
 }
 .greet {
-    background-color: transparent;
-    z-index: 1;
+    background-color: transparent !important;
+    background: transparent !important;
+    background-image: none !important;
+    z-index: 21;
+    position: relative;
     font-family: 'Hasiant', sans-serif;
     font-weight: 500;
     font-size: clamp(3rem, 8vw, 7rem); /* Responsive font size */
     color: white; /* Adjust color as needed */
     margin: 0;
+    box-shadow: none !important;
 }
 
 .details {
     margin-top: 0px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
     position: relative;
     z-index: 200;
     margin-left: 0;
@@ -120,15 +140,79 @@
     margin-bottom: calc(6rem + 170px);
     text-align: center;
     width: 100%;
+    position: relative;
 }
 
-.col
-{
+.details-text::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(2, 144, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transition: width 0.6s ease, height 0.6s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.details-text:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.col {
     display: inline-block;
     position: relative;
-    animation: slide-in 0.5s ease-out, slide-out 0.5s ease-out 1.5s;
-    font-weight: 320;
+    font-weight: 400;
     color: #0290FF;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 4px;
+}
+
+.col::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #0290FF 0%, #02c2ff 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.col:hover {
+    color: #02c2ff;
+    transform: translateY(-2px);
+}
+
+.col:hover::after {
+    transform: scaleX(1);
+}
+
+/* Subtle typing cursor effect on animated word */
+.col::before {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    top: 0;
+    color: #0290FF;
+    animation: blink 1s infinite;
+    opacity: 0.6;
+    font-weight: 300;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 0.6;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
 }
 
 /* Tablet Layout */

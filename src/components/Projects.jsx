@@ -1,9 +1,6 @@
-// First, let's add some debugging to your Projects component
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import TiltedCard from './TiltedCard';
 import './Project.css';
-import Gradient from '../assets/imgs/Gradient.png';
 import Frame from '../assets/imgs/Frame.jpg';
 import Frame2 from '../assets/imgs/Frame2.jpg';
 import port from '../assets/imgs/port.jpg';
@@ -12,101 +9,80 @@ const Projects = () => {
   const navigate = useNavigate();
 
   const handleCardClick = (path) => {
-    console.log('Card clicked, navigating to:', path); // Debug log
     navigate(path);
   };
 
-  // Test function to verify navigation works
-  const testNavigation = () => {
-    console.log('Test navigation triggered');
-    navigate('/GradGear');
-  };
+  const projects = [
+    {
+      id: 'gradgear',
+      title: 'Grad Gear',
+      subtitle: 'AI-Powered Laptop Recommendations',
+      image: Frame,
+      tech: ['React JS', 'Tailwind CSS', 'Node JS', 'OpenAI GPT-4'],
+      path: '/GradGear',
+      color: '#0290FF'
+    },
+    {
+      id: 'yantra',
+      title: 'Yantra Hack',
+      subtitle: 'Hackathon Registration Platform',
+      image: port,
+      tech: ['React JS', 'Node JS', 'Tailwind CSS'],
+      path: '/portfolio-project',
+      color: '#6C5CE7'
+    },
+    {
+      id: 'concept',
+      title: 'Concept Designs',
+      subtitle: 'UX/UI Case Studies',
+      image: Frame2,
+      tech: ['Figma', 'UI/UX Design', 'Concept Design'],
+      path: '/rate-my-dorm',
+      color: '#02c2ff'
+    }
+  ];
 
   return (
     <div className="projects-responsive-wrapper">
-      
-      
-      <div className="projects-container">
-        <TiltedCard
-          imageSrc={Frame}
-          altText="Grad Gear Project"
-          captionText="React JS , Tailwind CSS, Node JS"
-          containerHeight="300px"
-          containerWidth="300px"
-          imageHeight="300px"
-          imageWidth="300px"
-          rotateAmplitude={12}
-          scaleOnHover={1.2}
-          showMobileWarning={false}
-          showTooltip={true}
-          displayOverlayContent={true}
-          overlayContent={
-            <p className="tilted-card-demo-text">GRAD GEAR</p>
-          }
-          onClick={() => {
-            console.log('TiltedCard onClick triggered for GradGear'); // Debug log
-            handleCardClick('/GradGear');
-          }}
-        />
-        
-        <TiltedCard
-          imageSrc={port}
-          altText="Yantra Hack"
-          captionText="React JS , Node JS , Tailwind CSS"
-          containerHeight="300px"
-          containerWidth="300px"
-          imageHeight="300px"
-          imageWidth="300px"
-          rotateAmplitude={12}
-          scaleOnHover={1.2}
-          showMobileWarning={false}
-          showTooltip={true}
-          displayOverlayContent={true}
-          overlayContent={
-            <p className="tilted-card-demo-text">Yantra Hack</p>
-          }
-          onClick={() => {
-            console.log('TiltedCard onClick triggered for Portfolio'); // Debug log
-            handleCardClick('/portfolio-project');
-          }}
-        />
-        
-        <TiltedCard
-          imageSrc={Frame2}
-          altText="Concept Designs"
-          captionText="HTML, CSS, JavaScript"
-          containerHeight="300px"
-          containerWidth="300px"
-          imageHeight="300px"
-          imageWidth="300px"
-          rotateAmplitude={12}
-          scaleOnHover={1.2}
-          showMobileWarning={false}
-          showTooltip={true}
-          displayOverlayContent={true}
-          overlayContent={
-            <p className="tilted-card-demo-text">Concept Designs</p>
-          }
-          onClick={() => {
-            console.log('TiltedCard onClick triggered for Concept Designs'); // Debug log
-            handleCardClick('/rate-my-dorm');
-          }}
-        />
+      <div className="projects-container" id="projects-container">
+        {projects.map((project) => (
+          <div
+            key={project.id}
+            className="project-card-modern"
+            onClick={() => handleCardClick(project.path)}
+          >
+            <div className="project-card-image-wrapper">
+              <img 
+                src={project.image} 
+                alt={project.title}
+                className="project-card-image"
+              />
+              <div className="project-card-overlay" />
+            </div>
+            <div className="project-card-content">
+              <div className="project-card-header">
+                <h3 className="project-card-title">{project.title}</h3>
+                <p className="project-card-subtitle">{project.subtitle}</p>
+              </div>
+              <div className="project-card-tech">
+                {project.tech.map((tech, index) => (
+                  <span key={index} className="project-tech-badge">{tech}</span>
+                ))}
+              </div>
+              <div className="project-card-footer">
+                <span className="project-card-link">
+                  View Project <span className="arrow">→</span>
+                </span>
+              </div>
+            </div>
+            <div 
+              className="project-card-accent"
+              style={{ '--accent-color': project.color }}
+            />
+          </div>
+        ))}
       </div>
-      
-      <div className="project-title-container">
-        <h1 className="project-title">PROJECTS</h1>
-        <p className="project-title-detail">
-          Showcasing a blend of <span className="blue-text">creativity</span> and{' '}
-          <span className="blue-text">functionality</span> through GradGear, a
-          tailored laptop recommendation website; this interactive portfolio;
-          and an exciting project coming soon
-        </p>
-      </div>
-
-      <div className="gradeient2">
-        <img src={Gradient} alt="Gradient" />
-      </div>
+      <h1 className="projects-section-title">PROJECTS</h1>
     </div>
   );
 };

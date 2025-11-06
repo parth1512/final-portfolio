@@ -21,8 +21,8 @@ const AnimatedBlueGradient = () => {
         
         .gradient-wrapper {
           position: relative;
-          width: 500px;
-          height: 400px;
+          width: 400px;
+          height: 320px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -32,12 +32,12 @@ const AnimatedBlueGradient = () => {
         
         .gradient-piece {
           position: absolute;
-          width: 250px;
-          height: 250px;
+          width: 200px;
+          height: 200px;
           border-radius: 50%;
           filter: blur(40px);
           mix-blend-mode: screen;
-          opacity: 0.9;
+          opacity: 0.81;
           will-change: transform, box-shadow, background;
           transition: all 1500ms ease-in-out;
         }
@@ -116,20 +116,8 @@ const AnimatedBlueGradient = () => {
         
         @media (max-width: 1024px) {
           .gradient-wrapper {
-            width: 400px;
-            height: 320px;
-          }
-          
-          .gradient-piece {
-            width: 200px;
-            height: 200px;
-          }
-        }
-        
-        @media (max-width: 768px) {
-          .gradient-wrapper {
             width: 320px;
-            height: 260px;
+            height: 256px;
           }
           
           .gradient-piece {
@@ -138,15 +126,27 @@ const AnimatedBlueGradient = () => {
           }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
           .gradient-wrapper {
-            width: 280px;
-            height: 220px;
+            width: 256px;
+            height: 208px;
           }
           
           .gradient-piece {
-            width: 140px;
-            height: 140px;
+            width: 128px;
+            height: 128px;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .gradient-wrapper {
+            width: 224px;
+            height: 176px;
+          }
+          
+          .gradient-piece {
+            width: 112px;
+            height: 112px;
           }
         }
       `}</style>

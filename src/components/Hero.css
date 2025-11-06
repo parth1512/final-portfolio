@@ -8,17 +8,18 @@
 }
 
 .hero-container {
-    margin-left: 5%;
+    margin-left: 0;
     margin-top: 15vh;
     display: flex; /* Flexbox for horizontal alignment */
     align-items: center; /* Align items vertically in the center */
-    justify-content: flex-start; /* Align items to the left */
+    justify-content: center; /* Center items horizontally */
     gap: 30px; /* Add space between the image and text */
     padding: 0px; /* Optional padding for spacing */
     position: relative;
     z-index: 20;
     background-color: transparent !important;
     background: transparent !important;
+    width: 100%;
 }
 
 .pfp{
@@ -113,6 +114,7 @@
     color: white; /* Adjust color as needed */
     margin: 0;
     box-shadow: none !important;
+    text-align: center;
 }
 
 .details {

@@ -39,7 +39,7 @@ const About = () => {
       <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} />
       </div>
       <div className="info">
-        <h2>Hi, I'm Parth – a <span className="blueshade">Frontend Developer </span>passionate about crafting seamless digital experiences.</h2>
+        <h2>Hi, I'm Parth – a <span className="blueshade">Designer </span>passionate about crafting seamless digital experiences.</h2>
         <br></br>
         <p>With a background in information technology and a strong foundation in both <span className="blueshade">design</span> & <span className="blueshade">frontend devlopment</span>, I specialize in crafting visually compelling, user-centric, and highly responsive web interfaces. I combine React with solid UI/UX principles to create clean, intuitive, and visually refined interfaces.<br></br> Let's build something exceptional together!</p>
         <button className="btn" onClick={() => handleScroll('contact')}> lets connect </button>

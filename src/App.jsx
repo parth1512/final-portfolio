@@ -7,6 +7,8 @@ import About from './components/About.jsx';
 import GradGear from './components/GradGear.jsx';
 import PortfolioProject from './components/PortfolioProject.jsx';
 import RateMyDorm from './components/RateMyDorm.jsx';
+import RedFlower from './components/RedFlower.jsx';
+import Posters from './components/Posters.jsx';
 import Loader from './components/Loader.jsx';
 import CustomCursor from './components/CustomCursor.jsx';
 
@@ -117,6 +119,8 @@ const App = () => {
             <Route path="/GradGear" element={<GradGear />} />
             <Route path="/portfolio-project" element={<PortfolioProject />} />
             <Route path="/rate-my-dorm" element={<RateMyDorm />} />
+            <Route path="/red-flower" element={<RedFlower />} />
+            <Route path="/posters" element={<Posters />} />
           </Routes>
         </Router>
       )}

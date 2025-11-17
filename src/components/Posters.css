@@ -1,0 +1,375 @@
+/* Posters Gallery - Dynamic & Interactive Layout */
+
+.posters-page {
+  max-width: 1600px;
+  padding: 140px clamp(24px, 5vw, 80px) 80px;
+}
+
+/* Hero Section */
+.posters-hero {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.posters-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.posters-badge {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(2, 144, 255, 0.15);
+  border: 1px solid rgba(2, 144, 255, 0.3);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #0290FF;
+  margin-bottom: 24px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  background-color: transparent !important;
+}
+
+.posters-title {
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 100;
+  letter-spacing: 8px;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #ffffff 0%, #0290FF 50%, #7dc7ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-color: transparent !important;
+  line-height: 1.1;
+}
+
+.posters-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: #a0a0a0;
+  margin-bottom: 40px;
+  font-weight: 300;
+  line-height: 1.7;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.posters-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.poster-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0290FF;
+  line-height: 1;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  font-weight: 300;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Instagram CTA Button */
+.posters-cta {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.instagram-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCAF45 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(131, 58, 180, 0.3);
+  background-color: transparent !important;
+}
+
+.instagram-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(131, 58, 180, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.instagram-button:active {
+  transform: translateY(0);
+}
+
+.instagram-button svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.instagram-button svg * {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Category Filters */
+.posters-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.filter-btn {
+  padding: 10px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent !important;
+}
+
+.filter-btn:hover {
+  background: rgba(2, 144, 255, 0.1);
+  border-color: rgba(2, 144, 255, 0.3);
+  color: #7dc7ff;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: rgba(2, 144, 255, 0.2);
+  border-color: rgba(2, 144, 255, 0.4);
+  color: #0290FF;
+  font-weight: 500;
+}
+
+/* Posters Grid */
+.posters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 32px;
+  margin-bottom: 80px;
+}
+
+.poster-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s ease-out backwards;
+  backdrop-filter: blur(10px);
+}
+
+.poster-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(2, 144, 255, 0.4);
+  box-shadow: 0 20px 60px rgba(2, 144, 255, 0.2);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.poster-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 125%; /* 4:5 aspect ratio */
+  overflow: hidden;
+}
+
+.poster-image-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.poster-card:hover .poster-image-wrapper img {
+  transform: scale(1.1);
+}
+
+.poster-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.poster-overlay.active {
+  opacity: 1;
+}
+
+.poster-open-text {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 2px;
+  background: transparent !important;
+  background-color: transparent !important;
+  text-transform: uppercase;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 40px;
+  cursor: pointer;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10001;
+  background-color: transparent !important;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.lightbox-image {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .posters-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .posters-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .posters-filters {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  .posters-stats {
+    gap: 24px;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .posters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lightbox-image {
+    max-width: 95%;
+  }
+}
+

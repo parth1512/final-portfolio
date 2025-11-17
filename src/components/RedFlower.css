@@ -1,0 +1,1244 @@
+/* Red Flower Case Study - Functional & Complete Layout */
+
+.red-flower-page {
+  max-width: 1600px;
+  padding: 140px clamp(24px, 5vw, 80px) 80px;
+}
+
+/* Ensure all SVG and text elements have transparent backgrounds */
+.red-flower-page svg,
+.red-flower-page svg *,
+.red-flower-page svg path,
+.red-flower-page svg circle,
+.red-flower-page svg line,
+.red-flower-page svg polyline,
+.red-flower-page svg rect,
+.red-flower-page svg polygon,
+.red-flower-page h1:not(.rf-title),
+.red-flower-page h2,
+.red-flower-page h3,
+.red-flower-page h4,
+.red-flower-page h5,
+.red-flower-page h6,
+.red-flower-page p,
+.red-flower-page span,
+.red-flower-page code,
+.red-flower-page strong,
+.red-flower-page em,
+.red-flower-page a,
+.red-flower-page li,
+.red-flower-page label,
+.red-flower-page button {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Exclude color boxes from transparent background rule - allow inline styles */
+.red-flower-page .rf-color-box-compact {
+  /* Allow inline styles to set background - inline styles have highest specificity */
+  background: var(--inline-bg, initial) !important;
+  background-color: var(--inline-bg, initial) !important;
+}
+
+/* Ensure all text content inside any element is transparent */
+.red-flower-page h1:not(.rf-title) *,
+.red-flower-page h2 *,
+.red-flower-page h3 *,
+.red-flower-page h4 *,
+.red-flower-page h5 *,
+.red-flower-page h6 *,
+.red-flower-page p *,
+.red-flower-page span *,
+.red-flower-page code *,
+.red-flower-page strong *,
+.red-flower-page em *,
+.red-flower-page a *,
+.red-flower-page li *,
+.red-flower-page label *,
+.red-flower-page button *,
+.red-flower-page div h1:not(.rf-title),
+.red-flower-page div h2,
+.red-flower-page div h3,
+.red-flower-page div h4,
+.red-flower-page div h5,
+.red-flower-page div h6,
+.red-flower-page div p,
+.red-flower-page div span,
+.red-flower-page div code,
+.red-flower-page div strong,
+.red-flower-page div em {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Hero Section - Title at Top */
+.rf-hero-top {
+  margin-bottom: 60px;
+  margin-top: 60px;
+  padding-top: 0;
+  background: transparent !important;
+}
+
+/* Hero Section - Full Width */
+.rf-hero-full {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 80px;
+  align-items: start;
+  margin-bottom: 120px;
+}
+
+.rf-hero-left {
+  background: transparent !important;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.rf-hero-badge {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(230, 57, 70, 0.15);
+  border: 1px solid rgba(230, 57, 70, 0.3);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #E63946;
+  margin-bottom: 16px;
+  margin-top: 0;
+  font-weight: 500;
+  background-color: transparent !important;
+  letter-spacing: 0.5px;
+}
+
+.rf-title {
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-weight: 100;
+  letter-spacing: 8px;
+  margin-bottom: 24px;
+  margin-top: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #E63946 50%, #A8DADC 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  background-color: transparent !important;
+  line-height: 1.1;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.rf-title * {
+  background: linear-gradient(135deg, #ffffff 0%, #E63946 50%, #A8DADC 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  background-color: transparent !important;
+}
+
+.rf-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: #a0a0a0;
+  margin-bottom: 0;
+  font-weight: 300;
+  line-height: 1.7;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-hero-right {
+  position: relative;
+}
+
+.rf-hero-image-main {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.rf-hero-image-main:hover {
+  transform: translateY(-4px);
+}
+
+.rf-hero-image-main img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Section Styles */
+.rf-section-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-bottom: 120px;
+  align-items: start;
+}
+
+.rf-section-full {
+  margin-bottom: 120px;
+  background: transparent !important;
+}
+
+.rf-section-title-left {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 200;
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+  color: #ffffff;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-section-title-center {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 200;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  padding-bottom: 20px;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-section-title-center::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #E63946 50%, transparent 100%);
+}
+
+.rf-text-large {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: #cdcdcd;
+  line-height: 1.8;
+  margin-bottom: 0;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-text-body {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: #a0a0a0;
+  line-height: 1.8;
+  margin-bottom: 0;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Info Boxes */
+.rf-info-boxes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.rf-info-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.rf-info-box:hover {
+  border-color: rgba(230, 57, 70, 0.3);
+  transform: translateX(4px);
+}
+
+.rf-info-box h3 {
+  font-size: 0.85rem;
+  color: #E63946;
+  margin-bottom: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-info-box p {
+  font-size: 1rem;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 300;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Left Section Styles */
+.rf-left-section {
+  background: transparent !important;
+  margin-top: 8px;
+}
+
+.rf-left-section-title {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Insights Compact */
+.rf-insights-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rf-insight-compact {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.rf-insight-compact *,
+.rf-insight-compact h4,
+.rf-insight-compact p,
+.rf-insight-compact span,
+.rf-insight-compact div {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-insight-compact:hover {
+  border-color: rgba(230, 57, 70, 0.3);
+  transform: translateX(4px);
+}
+
+.rf-insight-icon-compact {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: #E63946;
+}
+
+.rf-insight-icon-compact svg {
+  width: 100%;
+  height: 100%;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-insight-icon-compact svg path,
+.rf-insight-icon-compact svg circle,
+.rf-insight-icon-compact svg line,
+.rf-insight-icon-compact svg polyline,
+.rf-insight-icon-compact svg rect {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-insight-compact h4 {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+  font-weight: 500;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-insight-compact h4 * {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-insight-compact p {
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  line-height: 1.5;
+  margin: 0;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-insight-compact p * {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Process Compact */
+.rf-process-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rf-process-compact-item {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.rf-process-compact-item *,
+.rf-process-compact-item h4,
+.rf-process-compact-item p,
+.rf-process-compact-item span,
+.rf-process-compact-item div {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-process-compact-item:hover {
+  border-color: rgba(230, 57, 70, 0.3);
+  transform: translateX(4px);
+}
+
+.rf-process-compact-number {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(230, 57, 70, 0.15);
+  border: 1px solid rgba(230, 57, 70, 0.3);
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #E63946;
+  background-color: transparent !important;
+}
+
+.rf-process-compact-number * {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-process-compact-item h4 {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+  font-weight: 500;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-process-compact-item p {
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  line-height: 1.5;
+  margin: 0;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Design System Compact */
+.rf-ds-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.rf-ds-compact-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.rf-ds-compact-item *,
+.rf-ds-compact-item h4,
+.rf-ds-compact-item p,
+.rf-ds-compact-item span,
+.rf-ds-compact-item code,
+.rf-ds-compact-item strong,
+.rf-ds-compact-item div {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-ds-compact-item h4 {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 16px;
+  font-weight: 500;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-color-compact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.rf-color-compact {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.rf-color-compact span,
+.rf-color-compact code,
+.rf-color-compact div {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-color-box-compact {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  display: block;
+}
+
+.rf-color-compact span {
+  display: block;
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 2px;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-color-compact code {
+  display: block;
+  font-size: 0.7rem;
+  color: #a0a0a0;
+  font-family: 'Courier New', monospace;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-type-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rf-type-compact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.rf-type-compact-item *,
+.rf-type-compact-item div,
+.rf-type-compact-item strong,
+.rf-type-compact-item span {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-type-preview-compact {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  flex-shrink: 0;
+  background-color: transparent !important;
+}
+
+.rf-type-preview-compact * {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-type-compact-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-type-compact-item div * {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-type-compact-item strong {
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 500;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-type-compact-item span {
+  font-size: 0.75rem;
+  color: #a0a0a0;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Process Visual */
+.rf-process-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.rf-process-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.rf-process-item:hover {
+  border-color: rgba(230, 57, 70, 0.4);
+  transform: translateX(8px);
+  box-shadow: 0 8px 24px rgba(230, 57, 70, 0.15);
+}
+
+.rf-process-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(230, 57, 70, 0.3);
+  line-height: 1;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-process-content h3 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 12px;
+  font-weight: 500;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-process-content p {
+  font-size: 1.1rem;
+  color: #a0a0a0;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-process-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: transparent !important;
+}
+
+.rf-process-list li {
+  font-size: 0.95rem;
+  color: #cdcdcd;
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-process-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #E63946;
+  font-weight: 600;
+}
+
+/* Insights Grid Full */
+.rf-insights-grid-full {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.rf-insight-large {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.rf-insight-large:hover {
+  transform: translateY(-4px);
+  border-color: rgba(230, 57, 70, 0.4);
+  box-shadow: 0 12px 32px rgba(230, 57, 70, 0.2);
+}
+
+.rf-insight-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.rf-insight-icon-large {
+  font-size: 2.5rem;
+}
+
+.rf-insight-large h3 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 500;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-insight-large p {
+  font-size: 1rem;
+  color: #a0a0a0;
+  line-height: 1.7;
+  margin: 0;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Design System Showcase */
+.rf-ds-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.rf-ds-element {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+}
+
+.rf-ds-element h4 {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 24px;
+  font-weight: 500;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-color-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.rf-color-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.rf-color-box {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.rf-color-item span {
+  font-size: 0.9rem;
+  color: #ffffff;
+  font-weight: 500;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-color-item code {
+  font-size: 0.75rem;
+  color: #a0a0a0;
+  font-family: 'Courier New', monospace;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-type-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rf-type-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+}
+
+.rf-type-preview {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  background-color: transparent !important;
+}
+
+.rf-type-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rf-type-info strong {
+  font-size: 0.95rem;
+  color: #ffffff;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-type-info span {
+  font-size: 0.8rem;
+  color: #a0a0a0;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Screen Showcase Full */
+.rf-screen-showcase-full {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  margin-top: 60px;
+}
+
+.rf-screen-category {
+  background: transparent !important;
+}
+
+.rf-category-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.rf-category-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: #ffffff;
+  margin-bottom: 12px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-category-desc {
+  font-size: 1.1rem;
+  color: #a0a0a0;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-screen-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.rf-screen-row.rf-screen-stacked {
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.rf-screen-row.rf-screen-single {
+  grid-template-columns: 1fr;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.rf-screen-card {
+  position: relative;
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rf-screen-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(230, 57, 70, 0.3);
+  border-color: rgba(230, 57, 70, 0.4);
+}
+
+.rf-screen-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.rf-screen-card:hover img {
+  transform: scale(1.05);
+}
+
+.rf-screen-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.rf-screen-card:hover .rf-screen-overlay {
+  opacity: 1;
+}
+
+.rf-screen-overlay span {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Principles List */
+.rf-principles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.rf-principle-item {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.rf-principle-item:hover {
+  border-color: rgba(230, 57, 70, 0.3);
+  transform: translateX(4px);
+}
+
+.rf-principle-item h3 {
+  font-size: 1.3rem;
+  color: #E63946;
+  margin-bottom: 12px;
+  font-weight: 600;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-principle-item h3 * {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-principle-item p {
+  font-size: 1rem;
+  color: #a0a0a0;
+  line-height: 1.7;
+  margin: 0;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-principle-item p * {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Features List */
+.rf-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rf-feature-item-new {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.rf-feature-item-new *,
+.rf-feature-item-new h3,
+.rf-feature-item-new p,
+.rf-feature-item-new span,
+.rf-feature-item-new div {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-feature-content *,
+.rf-feature-content h3,
+.rf-feature-content p,
+.rf-feature-content span,
+.rf-feature-content div {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-feature-item-new:hover {
+  border-color: rgba(230, 57, 70, 0.3);
+  transform: translateX(4px);
+}
+
+.rf-feature-badge {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(230, 57, 70, 0.15);
+  border: 1px solid rgba(230, 57, 70, 0.3);
+  border-radius: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #E63946;
+  background-color: transparent !important;
+}
+
+.rf-feature-badge::before {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-feature-badge * {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-feature-content h3 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-weight: 500;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-feature-content h3 * {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-feature-content p {
+  font-size: 0.95rem;
+  color: #a0a0a0;
+  line-height: 1.6;
+  margin: 0;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-feature-content p * {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Journey Flow */
+.rf-journey-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.rf-journey-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  min-width: 140px;
+  transition: all 0.3s ease;
+}
+
+.rf-journey-step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(230, 57, 70, 0.4);
+  box-shadow: 0 8px 24px rgba(230, 57, 70, 0.2);
+}
+
+.rf-journey-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: #E63946;
+  margin-bottom: 12px;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-journey-icon svg {
+  width: 100%;
+  height: 100%;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-journey-icon svg path,
+.rf-journey-icon svg circle,
+.rf-journey-icon svg line,
+.rf-journey-icon svg polyline,
+.rf-journey-icon svg rect {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-journey-step h4 {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 500;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-journey-step p {
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  margin: 0;
+  text-align: center;
+  line-height: 1.5;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-journey-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #E63946;
+  background: transparent !important;
+  flex-shrink: 0;
+}
+
+.rf-journey-arrow svg {
+  width: 100%;
+  height: 100%;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rf-journey-arrow svg path,
+.rf-journey-arrow svg circle,
+.rf-journey-arrow svg line,
+.rf-journey-arrow svg polyline,
+.rf-journey-arrow svg rect {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .rf-section-split {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .rf-insights-grid-full {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
+  .rf-hero-full {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .rf-hero-right {
+    order: -1;
+  }
+
+  .rf-screen-row {
+    grid-template-columns: 1fr;
+  }
+
+  .rf-journey-flow {
+    flex-direction: column;
+  }
+
+  .rf-journey-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .rf-process-item {
+    grid-template-columns: 60px 1fr;
+    gap: 20px;
+    padding: 24px;
+  }
+
+  .rf-process-number {
+    font-size: 2rem;
+  }
+}

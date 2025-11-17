@@ -2,17 +2,29 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ProjectPages.css';
 import './RedFlower.css';
-import HomeImg from '../assets/imgs/red flower/Home.png';
-import MenuImg from '../assets/imgs/red flower/Menu.png';
-import ProductListingImg from '../assets/imgs/red flower/Product Listing Page.png';
-import ProductListingFiltersImg from '../assets/imgs/red flower/Product Listing Page & Filters.png';
-import ProductViewImg from '../assets/imgs/red flower/Product View.png';
-import ProductViewExtendedImg from '../assets/imgs/red flower/Product View extended.png';
-import CartImg from '../assets/imgs/red flower/CART.png';
-import AccountImg from '../assets/imgs/red flower/ACCOUNT.png';
-import OrdersImg from '../assets/imgs/red flower/ORDERS.png';
-import LoginImg from '../assets/imgs/red flower/Login.png';
-import LogoutImg from '../assets/imgs/red flower/Logout.png';
+// Import Red Flower images - WebP with PNG fallbacks
+import HomeImgWebP from '../assets/imgs/red flower/Home.webp';
+import HomeImgPNG from '../assets/imgs/red flower/Home.png';
+import MenuImgWebP from '../assets/imgs/red flower/Menu.webp';
+import MenuImgPNG from '../assets/imgs/red flower/Menu.png';
+import ProductListingImgWebP from '../assets/imgs/red flower/Product Listing Page.webp';
+import ProductListingImgPNG from '../assets/imgs/red flower/Product Listing Page.png';
+import ProductListingFiltersImgWebP from '../assets/imgs/red flower/Product Listing Page & Filters.webp';
+import ProductListingFiltersImgPNG from '../assets/imgs/red flower/Product Listing Page & Filters.png';
+import ProductViewImgWebP from '../assets/imgs/red flower/Product View.webp';
+import ProductViewImgPNG from '../assets/imgs/red flower/Product View.png';
+import ProductViewExtendedImgWebP from '../assets/imgs/red flower/Product View extended.webp';
+import ProductViewExtendedImgPNG from '../assets/imgs/red flower/Product View extended.png';
+import CartImgWebP from '../assets/imgs/red flower/CART.webp';
+import CartImgPNG from '../assets/imgs/red flower/CART.png';
+import AccountImgWebP from '../assets/imgs/red flower/ACCOUNT.webp';
+import AccountImgPNG from '../assets/imgs/red flower/ACCOUNT.png';
+import OrdersImgWebP from '../assets/imgs/red flower/ORDERS.webp';
+import OrdersImgPNG from '../assets/imgs/red flower/ORDERS.png';
+import LoginImgWebP from '../assets/imgs/red flower/Login.webp';
+import LoginImgPNG from '../assets/imgs/red flower/Login.png';
+import LogoutImgWebP from '../assets/imgs/red flower/Logout.webp';
+import LogoutImgPNG from '../assets/imgs/red flower/Logout.png';
 
 const RedFlower = () => {
   const navigate = useNavigate();
@@ -229,7 +241,10 @@ const RedFlower = () => {
         </div>
         <div className="rf-hero-right">
           <div className="rf-hero-image-main">
-            <img src={HomeImg} alt="Red Flower Homepage" />
+            <picture>
+              <source srcSet={HomeImgWebP} type="image/webp" />
+              <img src={HomeImgPNG} alt="Red Flower Homepage" />
+            </picture>
           </div>
         </div>
       </div>
@@ -245,14 +260,20 @@ const RedFlower = () => {
               <p className="rf-category-desc">Clean navigation system with clear hierarchy and easy access to all sections</p>
             </div>
             <div className="rf-screen-row rf-screen-stacked">
-              <a href={HomeImg} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
-                <img src={HomeImg} alt="Homepage" />
+              <a href={HomeImgPNG} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
+                <picture>
+                  <source srcSet={HomeImgWebP} type="image/webp" />
+                  <img src={HomeImgPNG} alt="Homepage" />
+                </picture>
                 <div className="rf-screen-overlay">
                   <span>View Full Size</span>
                 </div>
               </a>
-              <a href={MenuImg} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
-                <img src={MenuImg} alt="Navigation Menu" />
+              <a href={MenuImgPNG} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
+                <picture>
+                  <source srcSet={MenuImgWebP} type="image/webp" />
+                  <img src={MenuImgPNG} alt="Navigation Menu" />
+                </picture>
                 <div className="rf-screen-overlay">
                   <span>View Full Size</span>
                 </div>
@@ -266,14 +287,20 @@ const RedFlower = () => {
               <p className="rf-category-desc">Advanced filtering system with clear visual feedback and organized product grid</p>
             </div>
             <div className="rf-screen-row">
-              <a href={ProductListingImg} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
-                <img src={ProductListingImg} alt="Product Listing" />
+              <a href={ProductListingImgPNG} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
+                <picture>
+                  <source srcSet={ProductListingImgWebP} type="image/webp" />
+                  <img src={ProductListingImgPNG} alt="Product Listing" />
+                </picture>
                 <div className="rf-screen-overlay">
                   <span>View Full Size</span>
                 </div>
               </a>
-              <a href={ProductListingFiltersImg} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
-                <img src={ProductListingFiltersImg} alt="Product Listing with Filters" />
+              <a href={ProductListingFiltersImgPNG} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
+                <picture>
+                  <source srcSet={ProductListingFiltersImgWebP} type="image/webp" />
+                  <img src={ProductListingFiltersImgPNG} alt="Product Listing with Filters" />
+                </picture>
                 <div className="rf-screen-overlay">
                   <span>View Full Size</span>
                 </div>
@@ -287,14 +314,20 @@ const RedFlower = () => {
               <p className="rf-category-desc">Comprehensive product information with high-quality imagery and organized details</p>
             </div>
             <div className="rf-screen-row">
-              <a href={ProductViewImg} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
-                <img src={ProductViewImg} alt="Product View" />
+              <a href={ProductViewImgPNG} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
+                <picture>
+                  <source srcSet={ProductViewImgWebP} type="image/webp" />
+                  <img src={ProductViewImgPNG} alt="Product View" />
+                </picture>
                 <div className="rf-screen-overlay">
                   <span>View Full Size</span>
                 </div>
               </a>
-              <a href={ProductViewExtendedImg} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
-                <img src={ProductViewExtendedImg} alt="Extended Product View" />
+              <a href={ProductViewExtendedImgPNG} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
+                <picture>
+                  <source srcSet={ProductViewExtendedImgWebP} type="image/webp" />
+                  <img src={ProductViewExtendedImgPNG} alt="Extended Product View" />
+                </picture>
                 <div className="rf-screen-overlay">
                   <span>View Full Size</span>
                 </div>
@@ -308,8 +341,11 @@ const RedFlower = () => {
               <p className="rf-category-desc">Streamlined cart and checkout process with clear pricing and progress indicators</p>
             </div>
             <div className="rf-screen-row rf-screen-single">
-              <a href={CartImg} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
-                <img src={CartImg} alt="Shopping Cart" />
+              <a href={CartImgPNG} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
+                <picture>
+                  <source srcSet={CartImgWebP} type="image/webp" />
+                  <img src={CartImgPNG} alt="Shopping Cart" />
+                </picture>
                 <div className="rf-screen-overlay">
                   <span>View Full Size</span>
                 </div>
@@ -323,14 +359,20 @@ const RedFlower = () => {
               <p className="rf-category-desc">Easy access to order history, preferences, and account settings</p>
             </div>
             <div className="rf-screen-row">
-              <a href={AccountImg} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
-                <img src={AccountImg} alt="Account Page" />
+              <a href={AccountImgPNG} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
+                <picture>
+                  <source srcSet={AccountImgWebP} type="image/webp" />
+                  <img src={AccountImgPNG} alt="Account Page" />
+                </picture>
                 <div className="rf-screen-overlay">
                   <span>View Full Size</span>
                 </div>
               </a>
-              <a href={OrdersImg} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
-                <img src={OrdersImg} alt="Orders Page" />
+              <a href={OrdersImgPNG} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
+                <picture>
+                  <source srcSet={OrdersImgWebP} type="image/webp" />
+                  <img src={OrdersImgPNG} alt="Orders Page" />
+                </picture>
                 <div className="rf-screen-overlay">
                   <span>View Full Size</span>
                 </div>
@@ -344,14 +386,20 @@ const RedFlower = () => {
               <p className="rf-category-desc">Secure and intuitive login and logout experience</p>
             </div>
             <div className="rf-screen-row">
-              <a href={LoginImg} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
-                <img src={LoginImg} alt="Login Page" />
+              <a href={LoginImgPNG} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
+                <picture>
+                  <source srcSet={LoginImgWebP} type="image/webp" />
+                  <img src={LoginImgPNG} alt="Login Page" />
+                </picture>
                 <div className="rf-screen-overlay">
                   <span>View Full Size</span>
                 </div>
               </a>
-              <a href={LogoutImg} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
-                <img src={LogoutImg} alt="Logout Page" />
+              <a href={LogoutImgPNG} target="_blank" rel="noopener noreferrer" className="rf-screen-card">
+                <picture>
+                  <source srcSet={LogoutImgWebP} type="image/webp" />
+                  <img src={LogoutImgPNG} alt="Logout Page" />
+                </picture>
                 <div className="rf-screen-overlay">
                   <span>View Full Size</span>
                 </div>

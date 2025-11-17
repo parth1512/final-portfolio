@@ -6,8 +6,10 @@ import Frame2 from '../assets/imgs/Frame2.jpg';
 import port from '../assets/imgs/port.jpg';
 import Project1 from '../assets/imgs/Project1.jpg';
 import RedFlowerHome from '../assets/imgs/red flower/Home.png';
-import RedFlowerCard from '../assets/imgs/red flower/RedFlowerCard.png';
-import PosterCard from '../assets/imgs/Posters/PosterCard.png';
+import RedFlowerCardWebP from '../assets/imgs/red flower/RedFlowerCard.webp';
+import RedFlowerCardPNG from '../assets/imgs/red flower/RedFlowerCard.png';
+import PosterCardWebP from '../assets/imgs/Posters/PosterCard.webp';
+import PosterCardPNG from '../assets/imgs/Posters/PosterCard.png';
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -61,7 +63,8 @@ const Projects = () => {
       id: 'redflower',
       title: 'Red Flower',
       subtitle: 'Premium E-Commerce UX/UI Design',
-      image: RedFlowerCard,
+      imageWebP: RedFlowerCardWebP,
+      imagePNG: RedFlowerCardPNG,
       tech: ['Figma', 'UI/UX Design', 'Design System', 'User Research'],
       path: '/red-flower',
       color: '#E63946'
@@ -97,7 +100,8 @@ const Projects = () => {
       id: 'posters',
       title: 'Posters',
       subtitle: 'Graphic Design Portfolio - KUBERNS & IEEE CS',
-      image: PosterCard,
+      imageWebP: PosterCardWebP,
+      imagePNG: PosterCardPNG,
       tech: ['Graphic Design', 'Adobe Creative Suite', 'Social Media', 'Marketing'],
       path: '/posters',
       color: '#6C5CE7'
@@ -120,11 +124,22 @@ const Projects = () => {
               onClick={() => handleCardClick(project.path)}
             >
               <div className="project-card-image-wrapper">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="project-card-image"
-                />
+                {project.imageWebP ? (
+                  <picture>
+                    <source srcSet={project.imageWebP} type="image/webp" />
+                    <img 
+                      src={project.imagePNG || project.image} 
+                      alt={project.title}
+                      className="project-card-image"
+                    />
+                  </picture>
+                ) : (
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="project-card-image"
+                  />
+                )}
                 <div className="project-card-overlay" />
               </div>
               <div className="project-card-content">

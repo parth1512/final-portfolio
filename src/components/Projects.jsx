@@ -70,6 +70,25 @@ const Projects = () => {
       color: '#E63946'
     },
     {
+      id: 'posters',
+      title: 'Posters',
+      subtitle: 'Graphic Design Portfolio - KUBERNS & IEEE CS',
+      imageWebP: PosterCardWebP,
+      imagePNG: PosterCardPNG,
+      tech: ['Graphic Design', 'Adobe Creative Suite', 'Social Media', 'Marketing'],
+      path: '/posters',
+      color: '#6C5CE7'
+    },
+    {
+      id: 'concept',
+      title: 'Concept Designs',
+      subtitle: 'UX/UI Case Studies',
+      image: Frame2,
+      tech: ['Figma', 'UI/UX Design', 'Concept Design'],
+      path: '/rate-my-dorm',
+      color: '#02c2ff'
+    },
+    {
       id: 'gradgear',
       title: 'Grad Gear',
       subtitle: 'AI-Powered Laptop Recommendations',
@@ -85,25 +104,6 @@ const Projects = () => {
       image: port,
       tech: ['React JS', 'Node JS', 'Tailwind CSS'],
       path: '/portfolio-project',
-      color: '#6C5CE7'
-    },
-    {
-      id: 'concept',
-      title: 'Concept Designs',
-      subtitle: 'UX/UI Case Studies',
-      image: Frame2,
-      tech: ['Figma', 'UI/UX Design', 'Concept Design'],
-      path: '/rate-my-dorm',
-      color: '#02c2ff'
-    },
-    {
-      id: 'posters',
-      title: 'Posters',
-      subtitle: 'Graphic Design Portfolio - KUBERNS & IEEE CS',
-      imageWebP: PosterCardWebP,
-      imagePNG: PosterCardPNG,
-      tech: ['Graphic Design', 'Adobe Creative Suite', 'Social Media', 'Marketing'],
-      path: '/posters',
       color: '#6C5CE7'
     },
   ];

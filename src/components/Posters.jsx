@@ -30,18 +30,18 @@ import Poster12WebP from '../assets/imgs/Posters/WITH & WITHOUT.webp';
 import Poster12PNG from '../assets/imgs/Posters/WITH & WITHOUT.png';
 
 const posters = [
-  { id: 1, imageWebP: Poster1WebP, imagePNG: Poster1PNG, title: 'CRM AD', category: 'Marketing' },
-  { id: 2, imageWebP: Poster2WebP, imagePNG: Poster2PNG, title: 'Instagram Post 28', category: 'Social Media' },
-  { id: 3, imageWebP: Poster3WebP, imagePNG: Poster3PNG, title: 'Instagram Post 33', category: 'Social Media' },
-  { id: 4, imageWebP: Poster4WebP, imagePNG: Poster4PNG, title: 'LLMS', category: 'Technical' },
-  { id: 5, imageWebP: Poster5WebP, imagePNG: Poster5PNG, title: 'No TOC', category: 'Design' },
-  { id: 6, imageWebP: Poster6WebP, imagePNG: Poster6PNG, title: 'Own Color Scheme', category: 'Design' },
-  { id: 7, imageWebP: Poster7WebP, imagePNG: Poster7PNG, title: 'Simple Sign Up', category: 'UI/UX' },
-  { id: 8, imageWebP: Poster8WebP, imagePNG: Poster8PNG, title: 'Twitter Post 15', category: 'Social Media' },
-  { id: 9, imageWebP: Poster9WebP, imagePNG: Poster9PNG, title: 'Twitter Post 42', category: 'Social Media' },
-  { id: 10, imageWebP: Poster10WebP, imagePNG: Poster10PNG, title: 'Twitter Post 47', category: 'Social Media' },
-  { id: 11, imageWebP: Poster11WebP, imagePNG: Poster11PNG, title: 'Vishal Instagram', category: 'Social Media' },
-  { id: 12, imageWebP: Poster12WebP, imagePNG: Poster12PNG, title: 'With & Without', category: 'Design' },
+  { id: 1, imageWebP: Poster1WebP, imagePNG: Poster1PNG, title: 'CRM AD', category: 'Marketing', size: 'large' },
+  { id: 2, imageWebP: Poster2WebP, imagePNG: Poster2PNG, title: 'Instagram Post 28', category: 'Social Media', size: 'medium' },
+  { id: 3, imageWebP: Poster3WebP, imagePNG: Poster3PNG, title: 'Instagram Post 33', category: 'Social Media', size: 'medium' },
+  { id: 4, imageWebP: Poster4WebP, imagePNG: Poster4PNG, title: 'LLMS', category: 'Technical', size: 'large' },
+  { id: 5, imageWebP: Poster5WebP, imagePNG: Poster5PNG, title: 'No TOC', category: 'Design', size: 'small' },
+  { id: 6, imageWebP: Poster6WebP, imagePNG: Poster6PNG, title: 'Own Color Scheme', category: 'Design', size: 'small' },
+  { id: 7, imageWebP: Poster7WebP, imagePNG: Poster7PNG, title: 'Simple Sign Up', category: 'UI/UX', size: 'medium' },
+  { id: 8, imageWebP: Poster8WebP, imagePNG: Poster8PNG, title: 'Twitter Post 15', category: 'Social Media', size: 'wide' },
+  { id: 9, imageWebP: Poster9WebP, imagePNG: Poster9PNG, title: 'Twitter Post 42', category: 'Social Media', size: 'tall' },
+  { id: 10, imageWebP: Poster10WebP, imagePNG: Poster10PNG, title: 'Twitter Post 47', category: 'Social Media', size: 'medium' },
+  { id: 11, imageWebP: Poster11WebP, imagePNG: Poster11PNG, title: 'Vishal Instagram', category: 'Social Media', size: 'medium' },
+  { id: 12, imageWebP: Poster12WebP, imagePNG: Poster12PNG, title: 'With & Without', category: 'Design', size: 'large' },
 ];
 
 const Posters = () => {
@@ -140,7 +140,7 @@ const Posters = () => {
         {filteredPosters.map((poster, index) => (
           <div
             key={poster.id}
-            className="poster-card"
+            className={`poster-card poster-card-${poster.size}`}
             onMouseEnter={() => setHoveredPoster(poster.id)}
             onMouseLeave={() => setHoveredPoster(null)}
             onClick={() => openLightbox(poster)}

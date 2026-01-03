@@ -311,6 +311,43 @@
   justify-content: center;
 }
 
+.desktop-only {
+  display: flex;
+}
+
+@media (max-width: 1024px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+.navbar-mobile-controls {
+  display: none;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-nav-cta .connect-btn {
+  padding: 6px 12px !important;
+  transform: scale(0.85);
+}
+
+.mobile-nav-cta .connect-btn img {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.mobile-nav-cta .connect-btn span {
+  font-size: 0.8rem !important;
+  gap: 4px !important;
+}
+
+@media (max-width: 1024px) {
+  .navbar-mobile-controls {
+    display: flex;
+  }
+}
+
 .nav-connect-wrapper .connect-btn {
   padding: 8px 16px !important;
   /* Much smaller padding */

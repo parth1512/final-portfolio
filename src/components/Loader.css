@@ -37,3 +37,9 @@
   letter-spacing: 0.05em;
   font-variant-numeric: tabular-nums;
 }
+
+@media (max-width: 480px) {
+  .counter-number {
+    font-size: 2.5rem;
+  }
+}

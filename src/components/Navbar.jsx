@@ -92,21 +92,36 @@ const Navbar = () => {
       </div>
 
       {/* Hamburger Menu Button */}
-      <div
-        className="hamburger-menu"
-        onClick={toggleMenu}
-        aria-label="Toggle menu"
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            toggleMenu();
-          }
-        }}
-      >
-        <div className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></div>
-        <div className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></div>
-        <div className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></div>
+      <div className="navbar-mobile-controls">
+        <AnimatePresence>
+          {showConnectButton && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              className="mobile-nav-cta"
+            >
+              <ConnectButton layoutId="connect-button" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <div
+          className="hamburger-menu"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              toggleMenu();
+            }
+          }}
+        >
+          <div className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></div>
+          <div className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></div>
+          <div className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></div>
+        </div>
       </div>
 
       {/* Desktop Menu */}
@@ -125,7 +140,7 @@ const Navbar = () => {
         >
           Projects
         </li>
-        <li className="navbar-nav-cta">
+        <li className="navbar-nav-cta desktop-only">
           <AnimatePresence mode="wait">
             {!showConnectButton ? (
               <motion.span

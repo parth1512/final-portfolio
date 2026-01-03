@@ -266,7 +266,7 @@
     }
 
     .greet {
-        font-size: 3rem;
+        font-size: 4rem;
         text-align: center;
     }
 
@@ -295,7 +295,7 @@
     }
 
     .greet {
-        font-size: 2rem;
+        font-size: 3.5rem;
         text-align: center;
     }
 
@@ -307,9 +307,10 @@
     }
 
     .details-text {
-        font-size: 1rem;
+        font-size: 1.1rem;
         text-align: center;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 10px;
     }
 }
 

@@ -383,4 +383,18 @@
         padding: 14px 28px;
         font-size: 1rem;
     }
+
+    .connect-btn {
+        padding: 12px 24px !important;
+    }
+
+    .connect-btn span {
+        font-size: 1rem !important;
+        gap: 6px !important;
+    }
+
+    .connect-btn img {
+        width: 24px !important;
+        height: 24px !important;
+    }
 }

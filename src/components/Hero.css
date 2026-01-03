@@ -10,11 +10,16 @@
 .hero-container {
     margin-left: 0;
     margin-top: 15vh;
-    display: flex; /* Flexbox for horizontal alignment */
-    align-items: center; /* Align items vertically in the center */
-    justify-content: center; /* Center items horizontally */
-    gap: 30px; /* Add space between the image and text */
-    padding: 0px; /* Optional padding for spacing */
+    display: flex;
+    /* Flexbox for horizontal alignment */
+    align-items: center;
+    /* Align items vertically in the center */
+    justify-content: center;
+    /* Center items horizontally */
+    gap: 30px;
+    /* Add space between the image and text */
+    padding: 0px;
+    /* Optional padding for spacing */
     position: relative;
     z-index: 20;
     background-color: transparent !important;
@@ -22,7 +27,7 @@
     width: 100%;
 }
 
-.pfp{
+.pfp {
     position: relative;
     width: 68px;
     height: 68px;
@@ -31,77 +36,90 @@
     border-radius: 50%;
     isolation: isolate;
     z-index: 0;
-    overflow: visible; /* allow glow to extend */
+    overflow: visible;
+    /* allow glow to extend */
 }
 
-.pfp::before{
+.pfp::before {
     content: '';
     position: absolute;
     inset: -3px;
     border-radius: inherit;
     background: conic-gradient(from 180deg, #0290FF, #5b2be8, #02c2ff, #0290FF);
     filter: blur(6px);
-    opacity: 0; /* hidden by default */
+    opacity: 0;
+    /* hidden by default */
     z-index: 0;
     pointer-events: none;
     animation: rotate 4s linear infinite;
     transition: opacity .25s ease;
 }
 
-.pfp::after{
+.pfp::after {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(60% 60% at 50% 50%, rgba(2,144,255,.35), transparent 70%);
+    background: radial-gradient(60% 60% at 50% 50%, rgba(2, 144, 255, .35), transparent 70%);
     filter: blur(8px);
     z-index: 0;
     pointer-events: none;
-    opacity: 0; /* hidden by default */
+    opacity: 0;
+    /* hidden by default */
     transition: opacity .25s ease;
 }
 
-.pfp img{
+.pfp img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 8px 24px rgba(2,144,255,.25);
+    box-shadow: 0 8px 24px rgba(2, 144, 255, .25);
     transform: translateZ(0);
     transition: transform .2s ease;
 }
 
-.pfp:hover img{
+.pfp:hover img {
     transform: scale(1.03);
-    box-shadow: 0 0 0 1px rgba(2,144,255,.25), 0 0 20px rgba(2,144,255,.22), 0 6px 18px rgba(2,144,255,.18);
+    box-shadow: 0 0 0 1px rgba(2, 144, 255, .25), 0 0 20px rgba(2, 144, 255, .22), 0 6px 18px rgba(2, 144, 255, .18);
 }
 
 /* Show glow when hovering avatar */
 .pfp:hover::before,
-.pfp:hover::after{ opacity: .25; }
+.pfp:hover::after {
+    opacity: .25;
+}
 
 /* Also show glow when hovering the greeting text */
 .hero-container:has(.greet:hover) .pfp::before,
-.hero-container:has(.greet:hover) .pfp::after{ opacity: .35; }
+.hero-container:has(.greet:hover) .pfp::after {
+    opacity: .35;
+}
 
-@keyframes rotate{ to{ transform: rotate(360deg); } }
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @font-face {
     font-family: 'Hasiant';
     src: url('/assets/fonts/Hasiant.ttf') format('truetype');
-    
+
 }
+
 .greet {
     background-color: transparent !important;
     background: transparent !important;
@@ -110,11 +128,27 @@
     position: relative;
     font-family: 'Hasiant', sans-serif;
     font-weight: 500;
-    font-size: clamp(3rem, 8vw, 7rem); /* Responsive font size */
-    color: white; /* Adjust color as needed */
+    font-size: clamp(5rem, 12vw, 10rem);
+    /* Massive size */
+    color: #fff;
     margin: 0;
-    box-shadow: none !important;
     text-align: center;
+    /* Subtle readability shadow by default */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: text-shadow 0.3s ease;
+    cursor: default;
+}
+
+.greet:hover,
+.hero:has(.connect-btn:hover) .greet {
+    /* Neon Glow Effect on Hover */
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #0290FF,
+        0 0 40px #0290FF,
+        0 0 80px #0290FF,
+        0 0 90px #0290FF;
 }
 
 .details {
@@ -139,7 +173,7 @@
     font-weight: 150;
     color: white;
     line-height: 1.4;
-    margin-bottom: calc(6rem + 170px);
+    margin-bottom: 80px;
     text-align: center;
     width: 100%;
     position: relative;
@@ -209,10 +243,14 @@
 }
 
 @keyframes blink {
-    0%, 50% {
+
+    0%,
+    50% {
         opacity: 0.6;
     }
-    51%, 100% {
+
+    51%,
+    100% {
         opacity: 0;
     }
 }
@@ -226,16 +264,19 @@
         margin-top: 8vh;
         gap: 20px;
     }
+
     .greet {
         font-size: 3rem;
         text-align: center;
     }
+
     .details {
         flex-direction: column;
         align-items: center;
         margin-left: 0;
         gap: 15px;
     }
+
     .details-text {
         font-size: 1.1rem;
         text-align: center;
@@ -252,16 +293,19 @@
         margin-top: 5vh;
         gap: 10px;
     }
+
     .greet {
         font-size: 2rem;
         text-align: center;
     }
+
     .details {
         flex-direction: column;
         align-items: center;
         margin-left: 0;
         gap: 10px;
     }
+
     .details-text {
         font-size: 1rem;
         text-align: center;
@@ -283,5 +327,59 @@
     .details {
         margin-left: 3%;
         margin-right: 3%;
+    }
+}
+
+/* Hero CTA */
+.hero-cta-container {
+    margin-top: 0;
+    /* Pull it up because of the huge margin on details-text */
+    z-index: 202;
+    position: relative;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: transparent;
+    /* Fix for global opaque background */
+}
+
+.hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    color: #ffffff;
+    font-family: 'SFpro', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.hero-cta-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 144, 255, 0.3);
+    /* Blue glow */
+}
+
+/* Adjust mobile layout spacing */
+@media (max-width: 768px) {
+    .hero-cta-container {
+        margin-top: -50px;
+        /* Adjust for mobile */
+    }
+
+    .hero-cta-btn {
+        padding: 14px 28px;
+        font-size: 1rem;
     }
 }

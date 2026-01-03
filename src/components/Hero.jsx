@@ -1,14 +1,16 @@
 import React from 'react'
 import pp from '../assets/imgs/pp.png'
 import './Hero.css'
+import ConnectButton from './ConnectButton';
+import TextReveal from './TextReveal';
 
 const Hero = () => {
-const[text, setText] = React.useState("build");
+  const [text, setText] = React.useState("build");
 
-const words = [ "design ", " create", "innovate"]; // Words to cycle through
-let index = 0;
+  const words = ["design ", " create", "innovate"]; // Words to cycle through
+  let index = 0;
 
-React.useEffect(() => {
+  React.useEffect(() => {
     const interval = setInterval(() => {
       index = (index + 1) % words.length; // Increment index and loop through words
       setText(words[index]);
@@ -18,22 +20,24 @@ React.useEffect(() => {
   }, []);
 
   return (
-    
+
     <div className="hero">
-    <div className="hero-container">
-    <div className="pfp" aria-label="Profile picture">
-    <img src={pp} alt="pp" />
-    </div>
-    <p className="greet">Hola! i am parth</p>
-    </div>
-    <div className="details">
+      <div className="hero-container">
+
+        <TextReveal className="greet">Hola! i am parth</TextReveal>
+      </div>
+      <div className="details">
         <p className="details-text">
           I <span className="col">{text}</span> seamless user interface, websites and create intuitive <br></br>experiences for the digital world.
         </p>
-    </div>
+      </div>
+
+      <div className="hero-cta-container">
+        <ConnectButton layoutId="connect-button" />
+      </div>
     </div>
 
-   
+
   )
 }
 

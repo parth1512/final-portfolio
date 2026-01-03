@@ -45,7 +45,7 @@
 .navbar-list {
   display: flex;
   list-style: none;
-  gap: clamp(24px, 4vw, 48px);
+  gap: clamp(20px, 3vw, 32px);
   margin: 0;
   padding: 0;
   align-items: center;
@@ -167,11 +167,11 @@
   .navbar {
     padding: 12px clamp(20px, 4vw, 32px);
   }
-  
+
   .hamburger-menu {
     display: flex;
   }
-  
+
   .navbar-list {
     position: fixed;
     top: 0;
@@ -193,13 +193,13 @@
     z-index: 1000;
     border-right: 1px solid rgba(255, 255, 255, 0.08);
   }
-  
+
   .navbar-list.mobile-open {
     transform: translateX(0);
     opacity: 1;
     visibility: visible;
   }
-  
+
   .navbar-list li {
     padding: 20px 0;
     width: 100%;
@@ -207,19 +207,19 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     transition: background 0.3s ease;
   }
-  
+
   .navbar-list li:first-child {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
-  
+
   .navbar-list li:hover {
     background: rgba(2, 144, 255, 0.05);
   }
-  
+
   .navbar-list li:last-child {
     border-bottom: none;
   }
-  
+
   .navbar-list a,
   .navbar-item-contact,
   .navbar-item-project {
@@ -231,7 +231,7 @@
     color: #e0e0e0;
     letter-spacing: 2px;
   }
-  
+
   .navbar-list a::after,
   .navbar-item-contact::after,
   .navbar-item-project::after {
@@ -240,13 +240,13 @@
     width: 0;
     height: 2px;
   }
-  
+
   .navbar-list a:hover::after,
   .navbar-item-contact:hover::after,
   .navbar-item-project:hover::after {
     width: 60%;
   }
-  
+
   .Logo {
     margin-left: 0;
   }
@@ -256,24 +256,24 @@
   .navbar {
     padding: 10px clamp(16px, 3vw, 24px);
   }
-  
+
   .hamburger-menu {
     padding: 6px;
   }
-  
+
   .hamburger-line {
     width: 22px;
     height: 2px;
   }
-  
+
   .navbar-list {
     padding-top: 80px;
   }
-  
+
   .navbar-list li {
     padding: 18px 0;
   }
-  
+
   .navbar-list a,
   .navbar-item-contact,
   .navbar-item-project {
@@ -286,21 +286,48 @@
   .navbar {
     padding: 8px clamp(12px, 2vw, 20px);
   }
-  
+
   .hamburger-menu {
     padding: 5px;
   }
-  
+
   .hamburger-line {
     width: 20px;
     height: 1.5px;
   }
-  
+
   .navbar-list a,
   .navbar-item-contact,
   .navbar-item-project {
     font-size: 1.2rem;
   }
+}
+
+/* Sync Animation Button Styles */
+.navbar-nav-cta {
+  display: flex;
+  align-items: center;
+  min-width: 80px;
+  justify-content: center;
+}
+
+.nav-connect-wrapper .connect-btn {
+  padding: 8px 16px !important;
+  /* Much smaller padding */
+  transform: scale(0.9);
+  transition: all 0.3s ease !important;
+}
+
+.nav-connect-wrapper .connect-btn span {
+  font-size: 0.9rem !important;
+  /* Smaller text */
+  gap: 6px !important;
+}
+
+.nav-connect-wrapper .connect-btn img {
+  width: 20px !important;
+  /* Smaller PFP */
+  height: 20px !important;
 }
 
 /* Smooth scroll behavior enhancement */
@@ -315,6 +342,7 @@
     transform: translateY(-100%);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;

@@ -3,7 +3,6 @@ import Hero from '../components/Hero.jsx';
 import AnimatedBlueGradient from '../components/AnimatedBlueGradient.jsx';
 import Projects from '../components/Projects.jsx';
 import ContactMe from '../components/ContactMe.jsx';
-import ScrollToTop from '../components/ScrollToTop.jsx';
 import './Home.css';
 
 const Home = () => {
@@ -36,7 +35,7 @@ const Home = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          
+
           // Also add visible class to projects container for card animations
           if (entry.target.id === 'project') {
             const container = document.getElementById('projects-container');
@@ -82,8 +81,8 @@ const Home = () => {
 
   return (
     <div>
-      <div 
-        className="scroll-progress" 
+      <div
+        className="scroll-progress"
         style={{ transform: `scaleX(${scrollProgress / 100})` }}
       />
       <Hero />
@@ -98,7 +97,6 @@ const Home = () => {
       <div className="contact-section" id="contact" ref={contactRef}>
         <ContactMe />
       </div>
-      <ScrollToTop />
     </div>
   );
 };

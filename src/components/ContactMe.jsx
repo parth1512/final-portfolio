@@ -1,44 +1,41 @@
-import React from 'react'
-import './ContactMe.css'
-import Gradient from '../assets/imgs/Gradient.png'
+import TextReveal from './TextReveal';
+import FadeInText from './FadeInText';
+import './ContactMe.css';
 
 const ContactMe = () => {
   return (
-    <div>
-      <div className="Banner">
-        <h1>GET IN TOUCH</h1>
-        <p><span>I'd love to hear from you!</span> Whether you have a project in mind, want to collaborate, or just<br></br> want to say hi, feel free to reach out.</p>
+    <div className="contact-wrapper">
+      <div className="contact-container">
+        <div className="contact-header">
+          <TextReveal className="contact-title" justify="start">LET'S WORK TOGETHER</TextReveal>
+          <FadeInText className="contact-subtitle" delay={0.3}>
+            Have a project in mind? Want to collaborate or just say hi?
+            <br /> I'm always open to new ideas and opportunities.
+          </FadeInText>
         </div>
-        <div className="footer">
-        <h2>CONTACT</h2>
-        <ul className="footer-list">
-            <li className="footer-item">
-                <a href="mailto:parthjadhav1512@gmail.com?subject=Your Subject&body=Your Message" >Mail</a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/parthjadhav2004/" target="_blank">Linkedin</a>
-            </li>
-            <li>
-                <a href="https://github.com/parth1512" target="_blank" >Github</a>
-            </li>
-            <li>
-                <a href="https://drive.google.com/file/d/1CsY4vZPukD9tH4Gqdva-f_83NrQRnOpE/view?usp=drive_link"target="_blank">Resume</a>
-            </li>
-        </ul>
 
-        <div className="gradeient">
-            <img src={Gradient} alt="Gradient" />
+        <div className="contact-links-container">
+          <a href="mailto:parthjadhav1512@gmail.com" className="contact-link-item">
+            <span className="link-label">Email</span>
+            <span className="link-arrow">→</span>
+          </a>
+          <a href="https://www.linkedin.com/in/parthjadhav2004/" target="_blank" rel="noopener noreferrer" className="contact-link-item">
+            <span className="link-label">LinkedIn</span>
+            <span className="link-arrow">→</span>
+          </a>
+          <a href="https://github.com/parth1512" target="_blank" rel="noopener noreferrer" className="contact-link-item">
+            <span className="link-label">GitHub</span>
+            <span className="link-arrow">→</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1CsY4vZPukD9tH4Gqdva-f_83NrQRnOpE/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="contact-link-item">
+            <span className="link-label">Resume</span>
+            <span className="link-arrow">→</span>
+          </a>
         </div>
-        
-       
 
       </div>
-      <div className="review-text">
-        <h2 className="review">Thanks for review</h2>
-        <p className="text">@2025 Parth's Portfolio All Rights Reserved</p>
-        </div>
     </div>
-  )
-}
+  );
+};
 
-export default ContactMe
+export default ContactMe;

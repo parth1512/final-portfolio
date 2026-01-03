@@ -1,38 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './Loader.css';
 
 const Loader = () => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCount((prev) => {
+        if (prev >= 100) {
+          clearInterval(timer);
+          return 100;
+        }
+        // Random jumps for a premium feel
+        const jump = Math.floor(Math.random() * 10) + 1;
+        return Math.min(prev + jump, 100);
+      });
+    }, 100);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div style={styles.overlay}>
-      <div className="loader-content">
-        <div className="loader-spinner"></div>
-        <p className="loader-quote">good things take time</p>
-        <div className="device-hint" aria-live="polite">
-          <svg className="device-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3" y="4" width="18" height="12" rx="2" ry="2" stroke="currentColor" strokeWidth="1.5"/>
-            <rect x="9" y="18" width="6" height="2" rx="1" fill="currentColor"/>
-          </svg>
-          <span className="device-text">Best experienced on desktop</span>
+    <div className="loader-overlay">
+
+
+      <div className="loader-center">
+        <div className="counter-number">
+          {count}
         </div>
       </div>
+
+      <div className="loader-grain" />
     </div>
   );
 };
 
-const styles = {
-  overlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100vw',
-    height: '100vh',
-    background: 'rgba(17, 17, 17, 0.95)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 9999,
-    transition: 'opacity 0.4s',
-  },
-};
-
-export default Loader; 
+export default Loader;

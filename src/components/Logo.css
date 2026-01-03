@@ -1,87 +1,40 @@
+@font-face {
+  font-family: 'Hasiant';
+  src: url('/assets/fonts/Hasiant.ttf') format('truetype');
+}
+
 .modern-logo {
   display: flex;
-  align-items: baseline;
-  gap: 4px;
-  font-family: 'SFpro', sans-serif;
+  align-items: center;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background: transparent !important;
-  background-color: transparent !important;
   padding: 4px 0;
+  text-decoration: none;
 }
 
 .logo-text {
-  display: inline-flex;
-  align-items: baseline;
-  background: transparent !important;
-  background-color: transparent !important;
-}
-
-.logo-p {
-  font-size: clamp(1.3rem, 2vw, 1.6rem);
-  font-weight: 400;
+  font-family: 'Hasiant', sans-serif;
+  font-size: 3rem;
   color: #ffffff;
-  letter-spacing: -0.5px;
-  background: transparent !important;
-  background-color: transparent !important;
+  font-weight: 500;
+  line-height: 1;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* Subtle readability shadow */
 }
 
-.logo-dot {
-  font-size: clamp(1.5rem, 2.2vw, 1.8rem);
-  font-weight: 400;
-  color: #0290FF;
-  line-height: 0.8;
-  background: transparent !important;
-  background-color: transparent !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: drop-shadow(0 0 4px rgba(2, 144, 255, 0.3));
-}
-
-.logo-design {
-  font-size: clamp(0.85rem, 1.5vw, 1rem);
-  font-weight: 300;
-  color: #a0a0a0;
-  letter-spacing: 1.5px;
-  margin-left: 2px;
-  background: transparent !important;
-  background-color: transparent !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modern-logo:hover .logo-p {
-  color: #0290FF;
+/* Neon Glow on Hover */
+.modern-logo:hover .logo-text {
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #0290FF,
+    0 0 40px #0290FF;
   transform: scale(1.05);
 }
 
-.modern-logo:hover .logo-dot {
-  color: #02c2ff;
-  transform: scale(1.2);
-}
-
-.modern-logo:hover .logo-design {
-  color: #ffffff;
-}
-
 @media (max-width: 768px) {
-  .logo-p,
-  .logo-dot {
-    font-size: 1.3rem;
-  }
-  
-  .logo-design {
-    font-size: 0.9rem;
+  .logo-text {
+    font-size: 3rem;
   }
 }
-
-@media (max-width: 480px) {
-  .logo-p,
-  .logo-dot {
-    font-size: 1.1rem;
-  }
-  
-  .logo-design {
-    font-size: 0.8rem;
-  }
-}
-

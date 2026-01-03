@@ -1,70 +1,93 @@
-import React, { useEffect, useRef } from 'react';
-import './CustomCursor.css';
+import React, { useEffect, useState } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
-const isTouch = () => typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
-const prefersReduced = () => typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const CustomCursor = () => {
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
 
-export default function CustomCursor() {
-  const dotRef = useRef(null);
-  const ringRef = useRef(null);
+  const springConfig = { damping: 25, stiffness: 700 };
+  const cursorXSpring = useSpring(cursorX, springConfig);
+  const cursorYSpring = useSpring(cursorY, springConfig);
+
+  const [isHovered, setIsHovered] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
-    if (isTouch() || prefersReduced()) return; // keep native cursor on touch/reduced motion
+    // Detect desktop only
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) return;
 
-    const dot = dotRef.current;
-    const ring = ringRef.current;
-    if (!dot || !ring) return;
-
-    let x = window.innerWidth / 2;
-    let y = window.innerHeight / 2;
-    let rx = x;
-    let ry = y;
-    let rafId = 0;
-
-    const move = (e) => {
-      x = e.clientX;
-      y = e.clientY;
-      dot.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-      if (!rafId) rafId = requestAnimationFrame(tick);
+    const moveCursor = (e) => {
+      cursorX.set(e.clientX - 10);
+      cursorY.set(e.clientY - 10);
     };
 
-    const tick = () => {
-      rx += (x - rx) * 0.15; // smoothing
-      ry += (y - ry) * 0.15;
-      ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
-      rafId = requestAnimationFrame(tick);
-    };
+    const handleMouseDown = () => setIsClicked(true);
+    const handleMouseUp = () => setIsClicked(false);
 
-    const onEnter = () => ring.classList.add('is-active');
-    const onLeave = () => ring.classList.remove('is-active');
+    const handleLinkHover = () => setIsHovered(true);
+    const handleLinkLeave = () => setIsHovered(false);
 
-    window.addEventListener('mousemove', move);
-    document.querySelectorAll('a, button, [role="button"], .btn').forEach((el) => {
-      el.addEventListener('mouseenter', onEnter);
-      el.addEventListener('mouseleave', onLeave);
+    window.addEventListener('mousemove', moveCursor);
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mouseup', handleMouseUp);
+
+    // Attach listeners to interactive elements
+    const links = document.querySelectorAll('a, button, .card, input, textarea');
+    links.forEach(link => {
+      link.addEventListener('mouseenter', handleLinkHover);
+      link.addEventListener('mouseleave', handleLinkLeave);
     });
 
-    document.body.classList.add('custom-cursor-enabled');
+    // MutationObserver to handle dynamically added elements (like portals or new cards)
+    const observer = new MutationObserver(() => {
+      const newLinks = document.querySelectorAll('a, button, .card, input, textarea');
+      newLinks.forEach(link => {
+        link.addEventListener('mouseenter', handleLinkHover);
+        link.addEventListener('mouseleave', handleLinkLeave);
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Add class to hide default cursor
+    document.body.style.cursor = 'none';
 
     return () => {
-      window.removeEventListener('mousemove', move);
-      document.querySelectorAll('a, button, [role="button"], .btn').forEach((el) => {
-        el.removeEventListener('mouseenter', onEnter);
-        el.removeEventListener('mouseleave', onLeave);
-      });
-      document.body.classList.remove('custom-cursor-enabled');
-      if (rafId) cancelAnimationFrame(rafId);
+      window.removeEventListener('mousemove', moveCursor);
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mouseup', handleMouseUp);
+      document.body.style.cursor = 'auto'; // Restore default
+      observer.disconnect();
     };
   }, []);
 
-  if (isTouch() || prefersReduced()) return null;
+  // If touch device, render nothing
+  if (typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0)) {
+    return null;
+  }
 
   return (
-    <div className="custom-cursor-layer" aria-hidden>
-      <div ref={ringRef} className="cursor-ring" />
-      <div ref={dotRef} className="cursor-dot" />
-    </div>
+    <motion.div
+      style={{
+        translateX: cursorXSpring,
+        translateY: cursorYSpring,
+        position: 'fixed',
+        left: 0,
+        top: 0,
+        width: 20,
+        height: 20,
+        borderRadius: '50%',
+        backgroundColor: 'white',
+        mixBlendMode: 'difference', // This creates the inversion effect
+        pointerEvents: 'none',
+        zIndex: 9999,
+      }}
+      animate={{
+        scale: isClicked ? 0.8 : isHovered ? 2.5 : 1, // Becomes larger on hover, smaller on click
+      }}
+      transition={{ type: "spring", stiffness: 500, damping: 28 }}
+    />
   );
-}
+};
 
-
+export default CustomCursor;

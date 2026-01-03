@@ -4,11 +4,7 @@ import './Logo.css';
 const Logo = () => {
   return (
     <div className="modern-logo">
-      <span className="logo-text">
-        <span className="logo-p">P</span>
-        <span className="logo-dot">.</span>
-      </span>
-      <span className="logo-design">design</span>
+      <span className="logo-text">parth</span>
     </div>
   );
 };

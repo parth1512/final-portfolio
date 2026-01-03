@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import Logo from './Logo.jsx';
+import ConnectButton from './ConnectButton.jsx';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -8,6 +10,7 @@ const Navbar = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showConnectButton, setShowConnectButton] = useState(false);
 
   const handleLogoClick = (e) => {
     e.preventDefault(); // Prevent default anchor behavior
@@ -62,11 +65,14 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
-  // Handle scroll detection for navbar border
+  // Handle scroll detection for navbar border and button flow
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY || document.documentElement.scrollTop;
-      setIsScrolled(scrollPosition > 10); // Show border after 10px scroll
+      setIsScrolled(scrollPosition > 10);
+
+      // Trigger the button flow slightly later
+      setShowConnectButton(scrollPosition > 400);
     };
 
     // Check initial scroll position
@@ -78,17 +84,16 @@ const Navbar = () => {
 
   // Determine active route
   const isProjectsActive = location.pathname === '/' && window.location.hash === '#project';
-  const isContactActive = location.pathname === '/' && window.location.hash === '#contact';
 
   return (
     <div className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="Logo" onClick={handleLogoClick}>
         <Logo />
       </div>
-      
+
       {/* Hamburger Menu Button */}
-      <div 
-        className="hamburger-menu" 
+      <div
+        className="hamburger-menu"
         onClick={toggleMenu}
         aria-label="Toggle menu"
         role="button"
@@ -107,8 +112,8 @@ const Navbar = () => {
       {/* Desktop Menu */}
       <ul className={`navbar-list ${isMenuOpen ? 'mobile-open' : ''}`}>
         <li className="navbar-item">
-          <Link 
-            to="/about" 
+          <Link
+            to="/about"
             onClick={() => setIsMenuOpen(false)}
           >
             About
@@ -120,11 +125,28 @@ const Navbar = () => {
         >
           Projects
         </li>
-        <li
-          className={`navbar-item-contact ${isContactActive ? 'active' : ''}`}
-          onClick={() => handleNavigation('contact')}
-        >
-          Contact
+        <li className="navbar-nav-cta">
+          <AnimatePresence mode="wait">
+            {!showConnectButton ? (
+              <motion.span
+                key="contact-text"
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                onClick={() => handleNavigation('contact')}
+                className="navbar-item-contact"
+              >
+                Contact
+              </motion.span>
+            ) : (
+              <motion.div
+                key="nav-button"
+                className="nav-connect-wrapper"
+              >
+                <ConnectButton layoutId="connect-button" />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </li>
       </ul>
     </div>

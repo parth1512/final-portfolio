@@ -1,6 +1,10 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import TextReveal from './TextReveal';
 import './Project.css';
+
+// Images
 import Frame from '../assets/imgs/Frame.jpg';
 import Frame2 from '../assets/imgs/Frame2.jpg';
 import port from '../assets/imgs/port.jpg';
@@ -11,214 +15,163 @@ import RedFlowerCardPNG from '../assets/imgs/red flower/RedFlowerCard.png';
 import PosterCardWebP from '../assets/imgs/Posters/PosterCard.webp';
 import PosterCardPNG from '../assets/imgs/Posters/PosterCard.png';
 
-const Projects = () => {
+const projects = [
+  {
+    id: 'redflower',
+    title: 'Red Flower',
+    subtitle: 'Premium E-Commerce UX/UI Design',
+    description: "A complete design system and high-fidelity prototype for a luxury florist brand. Focusing on an elegant, seamless user journey from discovery to checkout.",
+    imageWebP: RedFlowerCardWebP,
+    imagePNG: RedFlowerCardPNG,
+    tech: ['Figma', 'UI/UX Design', 'Design System', 'User Research'],
+    path: '/red-flower',
+    color: '#1a1a1a' // Darker backing for the card itself
+  },
+  {
+    id: 'posters',
+    title: 'Posters Collection',
+    subtitle: 'Graphic Design Portfolio',
+    description: "A curated collection of marketing assets and creative posters designed for KUBERNS & IEEE CS. Exploring typography, composition, and visual impact.",
+    imageWebP: PosterCardWebP,
+    imagePNG: PosterCardPNG,
+    tech: ['Adobe Creative Suite', 'Graphic Design', 'Marketing', 'Typography'],
+    path: '/posters',
+    color: '#1a1a1a'
+  },
+  {
+    id: 'concept',
+    title: 'Concept Designs',
+    subtitle: 'UX/UI Case Studies',
+    description: "Experimental interfaces and interaction design studies. pushing the boundaries of conventional mobile and web patterns to find new solutions.",
+    image: Frame2,
+    tech: ['Figma', 'Prototyping', 'Interaction Design'],
+    path: '/rate-my-dorm',
+    color: '#1a1a1a'
+  },
+  {
+    id: 'gradgear',
+    title: 'Grad Gear',
+    subtitle: 'AI-Powered Laptop Recommendations',
+    description: "An intelligent suggestion engine that helps students find the perfect laptop based on their major, budget, and software requirements. Powered by GPT-4.",
+    image: Frame,
+    tech: ['React JS', 'OpenAI API', 'Tailwind CSS', 'Node JS'],
+    path: '/GradGear',
+    color: '#1a1a1a'
+  },
+  {
+    id: 'yantra',
+    title: 'Yantra Hack',
+    subtitle: 'Hackathon Platform',
+    description: "The official registration and management portal for Yantra Hack. handled hundreds of participants with a robust backend and smooth registration flow.",
+    image: port,
+    tech: ['React JS', 'Node JS', 'MongoDB', 'Tailwind CSS'],
+    path: '/portfolio-project',
+    color: '#1a1a1a'
+  },
+];
+
+const Card = ({ i, title, subtitle, description, tech, src, imageWebP, imagePNG, image, path, progress, range, targetScale, isLast }) => {
+  const container = useRef(null);
   const navigate = useNavigate();
-  const scrollContainerRef = useRef(null);
-  const [showRightArrow, setShowRightArrow] = useState(true);
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start end', 'start start']
+  })
 
-  const handleCardClick = (path) => {
-    navigate(path);
-  };
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.2, 1])
+  const scale = useTransform(progress, range, [1, targetScale]);
 
-  const handleScroll = () => {
-    if (scrollContainerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-      const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 10;
-      const isAtStart = scrollLeft <= 10;
-      setShowRightArrow(!isAtEnd);
-      setShowLeftArrow(!isAtStart);
-    }
-  };
+  // Dynamic top offset to create the stack effect
+  const topOffset = `calc(15vh + ${i * 100}px)`;
 
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({
-        left: 400,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({
-        left: -400,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      container.addEventListener('scroll', handleScroll);
-      handleScroll(); // Check initial state
-      return () => container.removeEventListener('scroll', handleScroll);
-    }
-  }, []);
-
-  const projects = [
-    {
-      id: 'redflower',
-      title: 'Red Flower',
-      subtitle: 'Premium E-Commerce UX/UI Design',
-      imageWebP: RedFlowerCardWebP,
-      imagePNG: RedFlowerCardPNG,
-      tech: ['Figma', 'UI/UX Design', 'Design System', 'User Research'],
-      path: '/red-flower',
-      color: '#E63946'
-    },
-    {
-      id: 'posters',
-      title: 'Posters',
-      subtitle: 'Graphic Design Portfolio - KUBERNS & IEEE CS',
-      imageWebP: PosterCardWebP,
-      imagePNG: PosterCardPNG,
-      tech: ['Graphic Design', 'Adobe Creative Suite', 'Social Media', 'Marketing'],
-      path: '/posters',
-      color: '#6C5CE7'
-    },
-    {
-      id: 'concept',
-      title: 'Concept Designs',
-      subtitle: 'UX/UI Case Studies',
-      image: Frame2,
-      tech: ['Figma', 'UI/UX Design', 'Concept Design'],
-      path: '/rate-my-dorm',
-      color: '#02c2ff'
-    },
-    {
-      id: 'gradgear',
-      title: 'Grad Gear',
-      subtitle: 'AI-Powered Laptop Recommendations',
-      image: Frame,
-      tech: ['React JS', 'Tailwind CSS', 'Node JS', 'OpenAI GPT-4'],
-      path: '/GradGear',
-      color: '#0290FF'
-    },
-    {
-      id: 'yantra',
-      title: 'Yantra Hack',
-      subtitle: 'Hackathon Registration Platform',
-      image: port,
-      tech: ['React JS', 'Node JS', 'Tailwind CSS'],
-      path: '/portfolio-project',
-      color: '#6C5CE7'
-    },
-  ];
+  // For the last card, we calculate exact height so there's no empty space below
+  // Card height is 500px (Desktop), so we need TopOffset + 500px
+  const containerHeight = isLast ? `calc(15vh + ${i * 100}px + 500px)` : undefined;
 
   return (
-    <div className="projects-responsive-wrapper">
-      <div className={`projects-scroll-wrapper ${showLeftArrow ? 'has-left-arrow' : ''} ${showRightArrow ? 'has-right-arrow' : ''}`}>
-        <div 
-          className="projects-container" 
-          id="projects-container"
-          ref={scrollContainerRef}
-          onScroll={handleScroll}
-        >
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="project-card-modern"
-              onClick={() => handleCardClick(project.path)}
-            >
-              <div className="project-card-image-wrapper">
-                {project.imageWebP ? (
-                  <picture>
-                    <source srcSet={project.imageWebP} type="image/webp" />
-                    <img 
-                      src={project.imagePNG || project.image} 
-                      alt={project.title}
-                      className="project-card-image"
-                    />
-                  </picture>
-                ) : (
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="project-card-image"
-                  />
-                )}
-                <div className="project-card-overlay" />
-              </div>
-              <div className="project-card-content">
-                <div className="project-card-header">
-                  <h3 className="project-card-title">{project.title}</h3>
-                  <p className="project-card-subtitle">{project.subtitle}</p>
-                </div>
-                <div className="project-card-tech">
-                  {project.tech.map((tech, index) => (
-                    <span key={index} className="project-tech-badge">{tech}</span>
-                  ))}
-                </div>
-                <div className="project-card-footer">
-                  <span className="project-card-link">
-                    View Project <span className="arrow">→</span>
-                  </span>
-                </div>
-              </div>
-              <div 
-                className="project-card-accent"
-                style={{ '--accent-color': project.color }}
-              />
+    <div ref={container} className="card-container" style={{ height: containerHeight }}>
+      <motion.div
+        style={{ scale, top: topOffset }}
+        className="card"
+        onClick={() => navigate(path)}
+      >
+        <div className="card-body">
+          <div className="card-content">
+            <div className="card-header">
+              <h3 className="card-subtitle">{subtitle}</h3>
+              <h2 className="card-title">{title}</h2>
             </div>
-          ))}
+
+            <p className="card-description">{description}</p>
+
+            <div className="card-tech-stack">
+              {tech.map((t, idx) => (
+                <span key={idx} className="tech-badge">{t}</span>
+              ))}
+            </div>
+
+            <div className="card-cta">
+              <span>View Case Study</span>
+              <span className="arrow">→</span>
+            </div>
+          </div>
+
+          <div className="card-image-wrapper">
+            <motion.div className="card-image-inner" style={{ scale: imageScale }}>
+              {imageWebP ? (
+                <picture>
+                  <source srcSet={imageWebP} type="image/webp" />
+                  <img
+                    src={imagePNG || image}
+                    alt={title}
+                    className="card-image"
+                  />
+                </picture>
+              ) : (
+                <img
+                  src={image}
+                  alt={title}
+                  className="card-image"
+                />
+              )}
+            </motion.div>
+          </div>
         </div>
-        {showLeftArrow && (
-          <button 
-            className="scroll-arrow-button scroll-arrow-left"
-            onClick={scrollLeft}
-            aria-label="Scroll left"
-          >
-            <svg 
-              className="arrow-icon" 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ background: 'transparent', backgroundColor: 'transparent' }}
-            >
-              <path 
-                d="M15 18L9 12L15 6" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </svg>
-          </button>
-        )}
-        {showRightArrow && (
-          <button 
-            className="scroll-arrow-button scroll-arrow-right"
-            onClick={scrollRight}
-            aria-label="Scroll right"
-          >
-            <svg 
-              className="arrow-icon" 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ background: 'transparent', backgroundColor: 'transparent' }}
-            >
-              <path 
-                d="M9 18L15 12L9 6" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </svg>
-          </button>
-        )}
+      </motion.div>
+    </div>
+  )
+}
+
+const Projects = () => {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start start', 'end end']
+  })
+
+  return (
+    <div className="projects-section-wrapper" id="projects">
+      <div className="projects-header">
+        <TextReveal className="section-title">SELECTED WORKS</TextReveal>
+        <p className="section-subtitle">A showcase of digital products, designs, and experiences.</p>
       </div>
-      <h1 className="projects-section-title">PROJECTS</h1>
+
+      <div ref={container} className="projects-stack-container">
+        {projects.map((project, i) => {
+          const targetScale = 1 - ((projects.length - i) * 0.05);
+          return (
+            <Card
+              key={project.id}
+              i={i}
+              {...project}
+              progress={scrollYProgress}
+              range={[i * 0.25, 1]}
+              targetScale={targetScale}
+              isLast={i === projects.length - 1}
+            />
+          )
+        })}
+      </div>
     </div>
   );
 };

@@ -11,6 +11,7 @@ import RedFlower from './components/RedFlower.jsx';
 import Posters from './components/Posters.jsx';
 import Loader from './components/Loader.jsx';
 import CustomCursor from './components/CustomCursor.jsx';
+import UICaseStudy from './components/UICaseStudy.jsx';
 
 import './App.css';
 
@@ -83,7 +84,7 @@ const App = () => {
       try {
         // Wait for fonts defined in CSS to load (without overriding them)
         await waitForFonts();
-        
+
         // Small delay for smooth transition
         setTimeout(() => {
           setFadeOut(true);
@@ -121,6 +122,7 @@ const App = () => {
             <Route path="/rate-my-dorm" element={<RateMyDorm />} />
             <Route path="/red-flower" element={<RedFlower />} />
             <Route path="/posters" element={<Posters />} />
+            <Route path="/case-study" element={<UICaseStudy />} />
           </Routes>
         </Router>
       )}

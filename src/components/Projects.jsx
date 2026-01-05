@@ -14,8 +14,19 @@ import RedFlowerCardWebP from '../assets/imgs/red flower/RedFlowerCard.webp';
 import RedFlowerCardPNG from '../assets/imgs/red flower/RedFlowerCard.png';
 import PosterCardWebP from '../assets/imgs/Posters/PosterCard.webp';
 import PosterCardPNG from '../assets/imgs/Posters/PosterCard.png';
+import CaseStudyCover from '../assets/case-study/iPhone 16 Pro.png';
 
 const projects = [
+  {
+    id: 'ui-case-study',
+    title: 'Google Maps - Meet in the middle',
+    subtitle: 'Feature Implementation',
+    description: "A feature implementation for coordinated meet-ups between people in different locations",
+    image: CaseStudyCover,
+    tech: ['Figma', 'UI/UX Design', 'Prototyping', 'UX Research', 'Feature'],
+    path: '/case-study',
+    color: '#000000'
+  },
   {
     id: 'redflower',
     title: 'Red Flower',
@@ -94,6 +105,7 @@ const Card = ({ i, title, subtitle, description, tech, src, imageWebP, imagePNG,
         style={{ scale, top: topOffset }}
         className="card"
         onClick={() => navigate(path)}
+        data-cursor-text="View Project"
       >
         <div className="card-body">
           <div className="card-content">

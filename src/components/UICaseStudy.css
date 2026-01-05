@@ -1,0 +1,122 @@
+.case-study-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+.case-study-nav {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    z-index: 100;
+    mix-blend-mode: difference;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'SFpro', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    opacity: 1;
+}
+
+.case-study-images {
+    width: 100%;
+    max-width: 1440px;
+    /* Max width for large screens */
+    display: flex;
+    flex-direction: column;
+}
+
+.case-study-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Removed margin-bottom to make it seamless */
+}
+
+/* PDF Download Section */
+.pdf-download-section {
+    width: 100%;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #050505;
+}
+
+.pdf-card {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.pdf-card:hover {
+    transform: translateY(-5px);
+    border-color: #666;
+}
+
+.pdf-icon {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.pdf-info h3 {
+    color: #fff;
+    font-family: 'SFpro', sans-serif;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+}
+
+.pdf-info p {
+    color: #888;
+    font-family: 'SFpro', sans-serif;
+    font-size: 0.9rem;
+}
+
+.download-btn {
+    margin-top: 10px;
+    padding: 12px 24px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    font-family: 'SFpro', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+    background: #ddd;
+}
+
+@media (max-width: 768px) {
+    .case-study-nav {
+        top: 20px;
+        left: 20px;
+    }
+}

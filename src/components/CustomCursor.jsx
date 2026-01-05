@@ -11,6 +11,7 @@ const CustomCursor = () => {
 
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+  const [cursorText, setCursorText] = useState("");
 
   useEffect(() => {
     // Detect desktop only
@@ -25,27 +26,40 @@ const CustomCursor = () => {
     const handleMouseDown = () => setIsClicked(true);
     const handleMouseUp = () => setIsClicked(false);
 
-    const handleLinkHover = () => setIsHovered(true);
-    const handleLinkLeave = () => setIsHovered(false);
+    const handleLinkHover = (e) => {
+      setIsHovered(true);
+      // Check if the hovered element or its parents have data-cursor-text
+      const target = e.target.closest('[data-cursor-text]');
+      if (target) {
+        setCursorText(target.getAttribute('data-cursor-text'));
+      } else {
+        setCursorText("");
+      }
+    };
+
+    const handleLinkLeave = () => {
+      setIsHovered(false);
+      setCursorText("");
+    };
 
     window.addEventListener('mousemove', moveCursor);
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mouseup', handleMouseUp);
 
     // Attach listeners to interactive elements
-    const links = document.querySelectorAll('a, button, .card, input, textarea');
-    links.forEach(link => {
-      link.addEventListener('mouseenter', handleLinkHover);
-      link.addEventListener('mouseleave', handleLinkLeave);
-    });
-
-    // MutationObserver to handle dynamically added elements (like portals or new cards)
-    const observer = new MutationObserver(() => {
-      const newLinks = document.querySelectorAll('a, button, .card, input, textarea');
-      newLinks.forEach(link => {
+    const attachListeners = () => {
+      const links = document.querySelectorAll('a, button, .card, input, textarea, [data-cursor-text]');
+      links.forEach(link => {
         link.addEventListener('mouseenter', handleLinkHover);
         link.addEventListener('mouseleave', handleLinkLeave);
       });
+    };
+
+    attachListeners();
+
+    // MutationObserver to handle dynamically added elements
+    const observer = new MutationObserver(() => {
+      attachListeners();
     });
     observer.observe(document.body, { childList: true, subtree: true });
 
@@ -57,6 +71,13 @@ const CustomCursor = () => {
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
       document.body.style.cursor = 'auto'; // Restore default
+
+      // Cleanup listeners
+      const links = document.querySelectorAll('a, button, .card, input, textarea, [data-cursor-text]');
+      links.forEach(link => {
+        link.removeEventListener('mouseenter', handleLinkHover);
+        link.removeEventListener('mouseleave', handleLinkLeave);
+      });
       observer.disconnect();
     };
   }, []);
@@ -74,19 +95,39 @@ const CustomCursor = () => {
         position: 'fixed',
         left: 0,
         top: 0,
-        width: 20,
-        height: 20,
-        borderRadius: '50%',
+        width: cursorText ? "auto" : 20,
+        height: cursorText ? 40 : 20,
+        borderRadius: cursorText ? 20 : '50%',
         backgroundColor: 'white',
         mixBlendMode: 'difference', // This creates the inversion effect
         pointerEvents: 'none',
         zIndex: 9999,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: cursorText ? '0 15px' : 0,
       }}
       animate={{
-        scale: isClicked ? 0.8 : isHovered ? 2.5 : 1, // Becomes larger on hover, smaller on click
+        scale: isClicked ? 0.8 : isHovered ? (cursorText ? 1 : 2.5) : 1, // Becomes larger on hover (if no text), smaller on click
+        width: cursorText ? "auto" : 20,
+        height: cursorText ? 32 : 20,
       }}
       transition={{ type: "spring", stiffness: 500, damping: 28 }}
-    />
+    >
+      {cursorText && (
+        <span style={{
+          fontSize: '14px',
+          fontWeight: 600,
+          color: 'black',
+          whiteSpace: 'nowrap',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '6px'
+        }}>
+          👀 {cursorText}
+        </span>
+      )}
+    </motion.div>
   );
 };
 

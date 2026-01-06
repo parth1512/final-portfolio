@@ -2,8 +2,8 @@
 .projects-section-wrapper {
   position: relative;
   width: 100%;
-  padding: 250px 0 0;
-  /* Increased top padding to push below fold */
+  padding: 250px 0 30vh;
+  /* Increased top padding to push below fold, bottom padding to separate from contact */
   background-color: transparent;
 }
 

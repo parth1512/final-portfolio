@@ -15,8 +15,19 @@ import RedFlowerCardPNG from '../assets/imgs/red flower/RedFlowerCard.png';
 import PosterCardWebP from '../assets/imgs/Posters/PosterCard.webp';
 import PosterCardPNG from '../assets/imgs/Posters/PosterCard.png';
 import CaseStudyCover from '../assets/case-study/iPhone 16 Pro.png';
+import HitwicketHero from '../assets/case-study/game/Static without prototype.png';
 
 const projects = [
+  {
+    id: 'hitwicket-case-study',
+    title: 'Hitwicket - In-Game Player Profile',
+    subtitle: 'UI/UX Case Study',
+    description: "Reimagining how Hitwicket users interact with their team by transforming generic static profiles into dynamic, identity-driven hero dashboards.",
+    image: HitwicketHero,
+    tech: ['UI/UX Design', 'Game Design', 'System Design', 'Prototyping'],
+    path: '/case-study',
+    color: '#1a1a1a'
+  },
   {
     id: 'ui-case-study',
     title: 'Google Maps - Meet in the middle',
@@ -50,26 +61,6 @@ const projects = [
     color: '#1a1a1a'
   },
   {
-    id: 'concept',
-    title: 'Concept Designs',
-    subtitle: 'UX/UI Case Studies',
-    description: "Experimental interfaces and interaction design studies. pushing the boundaries of conventional mobile and web patterns to find new solutions.",
-    image: Frame2,
-    tech: ['Figma', 'Prototyping', 'Interaction Design'],
-    path: '/rate-my-dorm',
-    color: '#1a1a1a'
-  },
-  {
-    id: 'gradgear',
-    title: 'Grad Gear',
-    subtitle: 'AI-Powered Laptop Recommendations',
-    description: "An intelligent suggestion engine that helps students find the perfect laptop based on their major, budget, and software requirements. Powered by GPT-4.",
-    image: Frame,
-    tech: ['React JS', 'OpenAI API', 'Tailwind CSS', 'Node JS'],
-    path: '/GradGear',
-    color: '#1a1a1a'
-  },
-  {
     id: 'yantra',
     title: 'Yantra Hack',
     subtitle: 'Hackathon Platform',
@@ -95,9 +86,8 @@ const Card = ({ i, title, subtitle, description, tech, src, imageWebP, imagePNG,
   // Dynamic top offset to create the stack effect
   const topOffset = `calc(15vh + ${i * 100}px)`;
 
-  // For the last card, we calculate exact height so there's no empty space below
-  // Card height is 500px (Desktop), so we need TopOffset + 500px
-  const containerHeight = isLast ? `calc(15vh + ${i * 100}px + 500px)` : undefined;
+  // All cards have the same height
+  const containerHeight = '100vh';
 
   return (
     <div ref={container} className="card-container" style={{ height: containerHeight }}>
@@ -177,7 +167,7 @@ const Projects = () => {
               i={i}
               {...project}
               progress={scrollYProgress}
-              range={[i * 0.25, 1]}
+              range={[i * (1 / projects.length), 1]}
               targetScale={targetScale}
               isLast={i === projects.length - 1}
             />

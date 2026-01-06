@@ -28,7 +28,7 @@ const Hero = () => {
 
           <div className="details">
             <p className="details-text">
-              I <span className="col">{text}</span> seamless user interface, websites and create intuitive experiences for the digital world.
+              I <span className="col">{text}</span> AI-first, seamless user interfaces and digital experiences that solve real problems with clarity and intent.
             </p>
           </div>
 

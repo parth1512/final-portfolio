@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import './UICaseStudy.css';
 
 // Import Assets
-import heroImage from '../assets/case-study/game/Static without prototype.png';
-import videoDemo from '../assets/case-study/game/Video Demo UI UX.mov';
-import pdfFile from '../assets/case-study/game/Design_Approach_Documentation_Hitwicket (1).pdf';
+import heroImage from '../assets/case-study/Game/Static without prototype.png';
+import videoDemo from '../assets/case-study/Game/Video Demo UI UX.mov';
+import pdfFile from '../assets/case-study/Game/Design_Approach_Documentation_Hitwicket (1).pdf';
 
 const UICaseStudy = () => {
     useEffect(() => {

@@ -203,6 +203,8 @@ p.body-text {
     color: #ccc;
     max-width: 700px;
     font-family: var(--font-hud);
+    text-align: center;
+    margin: 0 auto;
 }
 
 /* --- Layout --- */
@@ -265,8 +267,9 @@ p.body-text {
 .pain-points-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 32px;
     margin-top: 40px;
+    width: 100%;
 }
 
 /* Mapping existing class names to new styles */
@@ -318,19 +321,20 @@ p.body-text {
 /* Strategy Grid */
 .strategy-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
     margin-top: 24px;
 }
 
 .strategy-card {
-    display: grid;
-    grid-template-columns: 60px 1fr;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
 }
 
 .strategy-icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 

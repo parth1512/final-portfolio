@@ -15,7 +15,7 @@ import RedFlowerCardPNG from '../assets/imgs/red flower/RedFlowerCard.png';
 import PosterCardWebP from '../assets/imgs/Posters/PosterCard.webp';
 import PosterCardPNG from '../assets/imgs/Posters/PosterCard.png';
 import CaseStudyCover from '../assets/case-study/iPhone 16 Pro.png';
-import HitwicketHero from '../assets/case-study/game/Static without prototype.png';
+import HitwicketHero from '../assets/case-study/MacBook-01.png';
 
 const projects = [
   {

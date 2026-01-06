@@ -18,28 +18,40 @@ import './Lanyard.css';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true }) {
+// Configurable Props for Lanyard Positioning
+export default function Lanyard({
+  position = [0, 0, 0],        // Camera Position [x, y, z]
+  gravity = [0, -40, 0],         // Physics Gravity
+  fov = 15,                      // Camera Field of View
+  transparent = true,
+  lanyardPosition = [0, 0.4, 0], // Anchor Position: [x, y, z]. Increase 'y' (middle number) to move the top of the lanyard higher.
+  isFlipped = false, // Controls 180 degree rotation for "About"
+  ambientLightIntensity = Math.PI, // Default ambient light
+  envIntensity = 0.15, // Multiplier for environment lights
+  meshRotation = [0, 0, 0], // Additional rotation for the card inner mesh
+  cardScale = [1, 1, 1], // Scale multiplier: [width, height, depth]
+  cableOffset = [0, 1.5, 0] // Offset for where the cable attaches to the card: [x, y, z]
+}) {
   return (
     <div className="lanyard-wrapper">
       <Canvas
-  camera={{ position: position, fov: fov }}
-  gl={{ alpha: true }} // Enable alpha for transparency
-  onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), 0)} // Set alpha to 0 for transparency
->
-  <ambientLight intensity={Math.PI} />
-  <Suspense fallback={<CanvasLoader /> }>
-    <Physics gravity={gravity} timeStep={1 / 60}>
-      <Band />
-    </Physics>
-    <Environment blur={0.75}>
-      <Lightformer intensity={2} color="white" position={[0, -1, 5]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
-      <Lightformer intensity={3} color="white" position={[-1, -1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
-      <Lightformer intensity={3} color="white" position={[1, 1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
-      <Lightformer intensity={10} color="white" position={[-10, 0, 14]} rotation={[0, Math.PI / 2, Math.PI / 3]} scale={[100, 10, 1]} />
-    </Environment>
-  </Suspense>
-</Canvas>
-
+        camera={{ position: position, fov: fov }}
+        gl={{ alpha: true }}
+        onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), 0)}
+      >
+        <ambientLight intensity={ambientLightIntensity} />
+        <Suspense fallback={<CanvasLoader />}>
+          <Physics gravity={gravity} timeStep={1 / 60}>
+            <Band position={lanyardPosition} isFlipped={isFlipped} meshRotation={meshRotation} cardScale={cardScale} cableOffset={cableOffset} />
+          </Physics>
+          <Environment blur={0.5}>
+            <Lightformer intensity={1 * envIntensity} color="white" position={[0, -1, 5]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
+            <Lightformer intensity={100 * envIntensity} color="white" position={[-1, -1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
+            <Lightformer intensity={3 * envIntensity} color="white" position={[1, 1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
+            <Lightformer intensity={12 * envIntensity} color="white" position={[-10, 0, 14]} rotation={[0, Math.PI / 2, Math.PI / 3]} scale={[100, 10, 1]} />
+          </Environment>
+        </Suspense>
+      </Canvas>
     </div>
   );
 }
@@ -54,13 +66,15 @@ function CanvasLoader() {
     </Html>
   );
 }
-function Band({ maxSpeed = 50, minSpeed = 0 }) {
+function Band({ maxSpeed = 50, minSpeed = 0, position = [0, 0, 0], isFlipped = false, meshRotation = [0, 0, 0], cardScale = [1, 1, 1], cableOffset = [0, 1.5, 0] }) {
   const band = useRef(),
     fixed = useRef(),
     j1 = useRef(),
     j2 = useRef(),
     j3 = useRef(),
-    card = useRef();
+    card = useRef(),
+    visualRef = useRef(); // Ref for the inner visual group
+
   const vec = new THREE.Vector3(),
     ang = new THREE.Vector3(),
     rot = new THREE.Vector3(),
@@ -68,6 +82,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
   const { nodes, materials } = useGLTF(cardGLB);
   const texture = useTexture(lanyard);
+
   const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]));
   const [dragged, drag] = useState(false);
   const [hovered, hover] = useState(false);
@@ -78,7 +93,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
   useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
   useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
   useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
-  useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.50, 0]]);
+  useSphericalJoint(j3, card, [[0, 0, 0], cableOffset]);
 
   useEffect(() => {
     if (hovered) {
@@ -116,11 +131,28 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
       curve.points[2].copy(j1.current.lerped);
       curve.points[3].copy(fixed.current.translation());
       band.current.geometry.setPoints(curve.getPoints(32));
-      
+
       // Add continuous rotation
       rot.copy(card.current.rotation());
-      rot.y += delta * 0.5; // Adjust 0.5 for speed of rotation
+      if (!isFlipped) {
+        rot.y += delta * 0.5; // Rotate only if not flipped (About mode)
+      }
       card.current.setNextKinematicRotation(rot);
+
+      // Smoothly flip the visual card mesh
+      // Smoothly flip the visual card mesh
+      if (visualRef.current) {
+        // Apply X and Z from props (static), animate Y (dynamic)
+        visualRef.current.rotation.x = meshRotation[0];
+        visualRef.current.rotation.z = meshRotation[2];
+
+        visualRef.current.rotation.y = THREE.MathUtils.damp(
+          visualRef.current.rotation.y,
+          isFlipped ? meshRotation[1] + Math.PI : meshRotation[1],
+          4,
+          delta
+        );
+      }
     }
   });
 
@@ -129,7 +161,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
 
   return (
     <>
-      <group position={[0, 4, 0]}>
+      <group position={[position[0], 4 + position[1], position[2]]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />
@@ -143,15 +175,19 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
         <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
-            scale={2.25}
+            ref={visualRef}
+            scale={[2.25 * cardScale[0], 2.25 * cardScale[1], 2.25 * cardScale[2]]}
             position={[0, -1.2, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
             onPointerUp={(e) => (e.target.releasePointerCapture(e.pointerId), drag(false))}
             onPointerDown={(e) => (e.target.setPointerCapture(e.pointerId), drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation()))))}>
+
             <mesh geometry={nodes.card.geometry}>
               <meshPhysicalMaterial map={materials.base.map} map-anisotropy={16} clearcoat={1} clearcoatRoughness={0.15} roughness={0.9} metalness={0.8} />
             </mesh>
+
+            {/* Preserve the Clip and Clamp from the original model */}
             <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
             <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
           </group>

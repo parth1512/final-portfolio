@@ -5,7 +5,7 @@ import Logo from './Logo.jsx';
 import ConnectButton from './ConnectButton.jsx';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ toggleAbout, isAboutOpen }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,6 +22,15 @@ const Navbar = () => {
       navigate('/');
     }
     setIsMenuOpen(false); // Close menu when logo is clicked
+  };
+
+  const handleAboutClick = (e) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/');
+    }
+    toggleAbout();
+    setIsMenuOpen(false);
   };
 
   const handleNavigation = (id) => {
@@ -127,12 +136,13 @@ const Navbar = () => {
       {/* Desktop Menu */}
       <ul className={`navbar-list ${isMenuOpen ? 'mobile-open' : ''}`}>
         <li className="navbar-item">
-          <Link
-            to="/about"
-            onClick={() => setIsMenuOpen(false)}
+          <a
+            href="/about"
+            onClick={handleAboutClick}
+            className={isAboutOpen ? 'active' : ''}
           >
             About
-          </Link>
+          </a>
         </li>
         <li
           className={`navbar-item-project ${isProjectsActive ? 'active' : ''}`}

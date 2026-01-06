@@ -5,7 +5,7 @@ import Projects from '../components/Projects.jsx';
 import ContactMe from '../components/ContactMe.jsx';
 import './Home.css';
 
-const Home = () => {
+const Home = ({ showAbout }) => {
   const [isDesktop, setIsDesktop] = useState(true);
   const [scrollProgress, setScrollProgress] = useState(0);
   const projectsRef = useRef(null);
@@ -85,7 +85,7 @@ const Home = () => {
         className="scroll-progress"
         style={{ transform: `scaleX(${scrollProgress / 100})` }}
       />
-      <Hero />
+      <Hero showAbout={showAbout} />
       {isDesktop && window.innerWidth > 1024 && (
         <div className="gradient-container">
           <AnimatedBlueGradient />

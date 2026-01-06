@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 
 import Navbar from './components/Navbar.jsx';
 import Home from './components/Home.jsx';
-import About from './components/About.jsx';
 import GradGear from './components/GradGear.jsx';
 import PortfolioProject from './components/PortfolioProject.jsx';
 import RateMyDorm from './components/RateMyDorm.jsx';
@@ -78,6 +77,7 @@ const waitForFonts = async () => {
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
 
   useEffect(() => {
     const loadAll = async () => {
@@ -113,10 +113,9 @@ const App = () => {
         <Router>
           <CustomCursor />
           <ScrollHandler />
-          <Navbar />
+          <Navbar toggleAbout={() => setShowAbout(!showAbout)} isAboutOpen={showAbout} />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/" element={<Home showAbout={showAbout} />} />
             <Route path="/GradGear" element={<GradGear />} />
             <Route path="/portfolio-project" element={<PortfolioProject />} />
             <Route path="/rate-my-dorm" element={<RateMyDorm />} />

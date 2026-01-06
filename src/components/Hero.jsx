@@ -4,7 +4,7 @@ import ConnectButton from './ConnectButton';
 import TextReveal from './TextReveal';
 import Lanyard from './Lanyard';
 
-const Hero = () => {
+const Hero = ({ showAbout }) => {
   const [text, setText] = React.useState("build");
 
   const words = ["design ", " create", "innovate"]; // Words to cycle through
@@ -24,7 +24,7 @@ const Hero = () => {
       <div className="hero-two-column">
         {/* Left Column - Text Content */}
         <div className="hero-left">
-          <TextReveal className="greet">Hola! I am parth</TextReveal>
+          <TextReveal className="greet">Hola! i am parth</TextReveal>
 
           <div className="details">
             <p className="details-text">
@@ -39,7 +39,7 @@ const Hero = () => {
 
         {/* Right Column - Lanyard */}
         <div className="hero-right">
-          <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} fov={20} />
+          <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} fov={20} isFlipped={showAbout} />
         </div>
       </div>
     </div>

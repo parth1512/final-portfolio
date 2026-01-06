@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 
 const CustomCursor = () => {
+  const location = useLocation();
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
@@ -12,6 +14,13 @@ const CustomCursor = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [cursorText, setCursorText] = useState("");
+
+  // Reset cursor on route change
+  useEffect(() => {
+    setIsHovered(false);
+    setIsClicked(false);
+    setCursorText("");
+  }, [location]);
 
   useEffect(() => {
     // Detect desktop only

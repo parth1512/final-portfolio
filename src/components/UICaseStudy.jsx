@@ -5,8 +5,11 @@ import './UICaseStudy.css';
 
 // Import Assets
 import heroImage from '../assets/case-study/Game/Static without prototype.png';
-import videoDemo from '../assets/case-study/Game/Video Demo UI UX.mov';
+// import videoDemo from '../assets/case-study/Game/Video Demo UI UX.mov'; // Removed large file
 import pdfFile from '../assets/case-study/Game/Design_Approach_Documentation_Hitwicket (1).pdf';
+
+// YouTube Video ID: p2Vy_U-2VBw
+const YOUTUBE_VIDEO_ID = "p2Vy_U-2VBw";
 
 const UICaseStudy = () => {
     useEffect(() => {
@@ -26,19 +29,19 @@ const UICaseStudy = () => {
                 </Link>
             </nav>
 
-            {/* 1. HERO VIDEO LOOP */}
+            {/* 1. HERO VIDEO LOOP (YouTube Embed) */}
             <div className="hero-video-container">
-                <video
-                    className="hero-video-loop"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    poster={heroImage}
-                >
-                    <source src={videoDemo} type="video/mp4" />
-                    <source src={videoDemo} type="video/quicktime" />
-                </video>
+                <div className="video-wrapper">
+                    <iframe
+                        className="hero-video-loop"
+                        src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${YOUTUBE_VIDEO_ID}&showinfo=0&rel=0&modestbranding=1&playsinline=1`}
+                        title="Hitwicket Case Study Video"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        style={{ pointerEvents: 'none' }} // Prevents clicking (pausing/opening in new tab) for a more "background" feel
+                    ></iframe>
+                </div>
                 <div className="video-overlay-gradient"></div>
             </div>
 

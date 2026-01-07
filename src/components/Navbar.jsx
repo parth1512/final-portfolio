@@ -93,19 +93,10 @@ const Navbar = ({ toggleAbout, isAboutOpen }) => {
 
   // Determine active route
   const isProjectsActive = location.pathname === '/' && window.location.hash === '#project';
-  const isCaseStudy = location.pathname === '/case-study';
 
   return (
     <div className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <div
-        className="Logo"
-        onClick={handleLogoClick}
-        style={{
-          opacity: isCaseStudy ? 0 : 1,
-          pointerEvents: isCaseStudy ? 'none' : 'auto',
-          transition: 'opacity 0.3s ease'
-        }}
-      >
+      <div className="Logo" onClick={handleLogoClick}>
         <Logo />
       </div>
 

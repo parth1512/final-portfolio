@@ -5,9 +5,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ProjectPages.css'; // Shared styles for project pages
-import { getAssetUrl } from '../utils/assets';
-const ss1 = getAssetUrl('imgs/ss1.png');
-const ss2 = getAssetUrl('imgs/ss2.png');
+import ss1 from '../assets/imgs/ss1.png';
+import ss2 from '../assets/imgs/ss2.png';
 
 const GradGear = () => {
   const navigate = useNavigate();

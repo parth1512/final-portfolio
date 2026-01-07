@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ProjectPages.css';
-import { getAssetUrl } from '../utils/assets';
-const ss3 = getAssetUrl('imgs/ss3.png');
-const ss4 = getAssetUrl('imgs/ss4.png');
+import ss3 from '../assets/imgs/ss3.png';
+import ss4 from '../assets/imgs/ss4.png';
 
 const RateMyDorm = () => {
   const navigate = useNavigate();

@@ -5,20 +5,17 @@ import TextReveal from './TextReveal';
 import './Project.css';
 
 // Images
-// Images
-import { getAssetUrl } from '../utils/assets';
-
-const Frame = getAssetUrl('imgs/Frame.jpg');
-const Frame2 = getAssetUrl('imgs/Frame2.jpg');
-const port = getAssetUrl('imgs/port.jpg');
-const Project1 = getAssetUrl('imgs/Project1.jpg');
-const RedFlowerHome = getAssetUrl('imgs/red flower/Home.png');
-const RedFlowerCardWebP = getAssetUrl('imgs/red flower/RedFlowerCard.webp');
-const RedFlowerCardPNG = getAssetUrl('imgs/red flower/RedFlowerCard.png');
-const PosterCardWebP = getAssetUrl('imgs/Posters/PosterCard.webp');
-const PosterCardPNG = getAssetUrl('imgs/Posters/PosterCard.png');
-const CaseStudyCover = getAssetUrl('case-study/iPhone 16 Pro.png');
-const HitwicketHero = getAssetUrl('case-study/MacBook-01.png');
+import Frame from '../assets/imgs/Frame.jpg';
+import Frame2 from '../assets/imgs/Frame2.jpg';
+import port from '../assets/imgs/port.jpg';
+import Project1 from '../assets/imgs/Project1.jpg';
+import RedFlowerHome from '../assets/imgs/red flower/Home.png';
+import RedFlowerCardWebP from '../assets/imgs/red flower/RedFlowerCard.webp';
+import RedFlowerCardPNG from '../assets/imgs/red flower/RedFlowerCard.png';
+import PosterCardWebP from '../assets/imgs/Posters/PosterCard.webp';
+import PosterCardPNG from '../assets/imgs/Posters/PosterCard.png';
+import CaseStudyCover from '../assets/case-study/iPhone 16 Pro.png';
+import HitwicketHero from '../assets/case-study/MacBook-01.png';
 
 const projects = [
   {

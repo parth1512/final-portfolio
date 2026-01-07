@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ProjectPages.css';
-import { getAssetUrl } from '../utils/assets';
-const projectShot1 = getAssetUrl('imgs/ss5.png');
-const projectShot2 = getAssetUrl('imgs/ss6.png');
+import projectShot1 from '../assets/imgs/ss5.png';
+import projectShot2 from '../assets/imgs/ss6.png';
 
 const PortfolioProject = () => {
   const navigate = useNavigate();

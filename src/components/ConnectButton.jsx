@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { getAssetUrl } from '../utils/assets';
-const pp = getAssetUrl('imgs/pp.png');
+import pp from '../assets/imgs/pp.png';
 
 const ConnectButton = ({ layoutId }) => {
     const buttonRef = useRef(null);

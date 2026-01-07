@@ -4,12 +4,9 @@ import { Link } from 'react-router-dom';
 import './UICaseStudy.css';
 
 // Import Assets
-// Import Assets
-import { getAssetUrl } from '../utils/assets';
-
-const heroImage = getAssetUrl('case-study/Game/Static without prototype.png');
-// import videoDemo - Removed
-const pdfFile = getAssetUrl('case-study/Game/Design_Approach_Documentation_Hitwicket (1).pdf');
+import heroImage from '../assets/case-study/Game/Static without prototype.png';
+// import videoDemo from '../assets/case-study/Game/Video Demo UI UX.mov'; // Removed large file
+import pdfFile from '../assets/case-study/Game/Design_Approach_Documentation_Hitwicket (1).pdf';
 
 // YouTube Video ID: p2Vy_U-2VBw
 const YOUTUBE_VIDEO_ID = "p2Vy_U-2VBw";

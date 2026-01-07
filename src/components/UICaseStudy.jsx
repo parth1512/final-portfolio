@@ -29,17 +29,14 @@ const UICaseStudy = () => {
 
             {/* 1. HERO VIDEO LOOP */}
             <div className="hero-video-container">
-                <video
+                <iframe
                     className="hero-video-loop"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    poster={heroImage}
-                >
-                    <source src={videoDemo} type="video/mp4" />
-                    <source src={videoDemo} type="video/quicktime" />
-                </video>
+                    src="https://www.youtube.com/embed/p2Vy_U-2VBw?autoplay=1&mute=1&loop=1&playlist=p2Vy_U-2VBw&controls=0&showinfo=0&rel=0"
+                    title="Hitwicket Game Video"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                ></iframe>
                 <div className="video-overlay-gradient"></div>
             </div>
 

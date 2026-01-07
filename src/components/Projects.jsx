@@ -35,7 +35,7 @@ const projects = [
     description: "A feature implementation for coordinated meet-ups between people in different locations",
     image: CaseStudyCover,
     tech: ['Figma', 'UI/UX Design', 'Prototyping', 'UX Research', 'Feature'],
-    path: '/case-study',
+    path: '/google-maps',
     color: '#000000'
   },
   {

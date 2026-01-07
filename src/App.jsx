@@ -11,15 +11,16 @@ import Posters from './components/Posters.jsx';
 import Loader from './components/Loader.jsx';
 import CustomCursor from './components/CustomCursor.jsx';
 import UICaseStudy from './components/UICaseStudy.jsx';
+import GoogleMaps from './components/GoogleMaps.jsx';
 
 import './App.css';
 
 const ScrollHandler = () => {
-  const location = useLocation();
+  const { pathname, state } = useLocation();
 
   useEffect(() => {
-    if (location.state?.scrollTo) {
-      const id = location.state.scrollTo;
+    if (state?.scrollTo) {
+      const id = state.scrollTo;
       if (id === 'top') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
@@ -30,8 +31,11 @@ const ScrollHandler = () => {
           window.scrollTo({ top, behavior: 'smooth' });
         }
       }
+    } else {
+      // Always scroll to top on route change if no specific target
+      window.scrollTo(0, 0);
     }
-  }, [location]);
+  }, [pathname, state]);
 
   return null;
 };
@@ -122,6 +126,7 @@ const App = () => {
             <Route path="/red-flower" element={<RedFlower />} />
             <Route path="/posters" element={<Posters />} />
             <Route path="/case-study" element={<UICaseStudy />} />
+            <Route path="/google-maps" element={<GoogleMaps />} />
           </Routes>
         </Router>
       )}

@@ -96,7 +96,7 @@ const Navbar = ({ toggleAbout, isAboutOpen }) => {
 
   return (
     <div className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="Logo" onClick={handleLogoClick}>
+      <div className="Logo" onClick={handleLogoClick} style={{ opacity: location.pathname === '/case-study' ? 0 : 1, pointerEvents: location.pathname === '/case-study' ? 'none' : 'auto', transition: 'opacity 0.3s ease' }}>
         <Logo />
       </div>
 

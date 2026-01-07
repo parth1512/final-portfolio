@@ -3,28 +3,30 @@ import { useNavigate } from 'react-router-dom';
 import './ProjectPages.css';
 import './RedFlower.css';
 // Import Red Flower images - WebP with PNG fallbacks
-import HomeImgWebP from '../assets/imgs/red flower/Home.webp';
-import HomeImgPNG from '../assets/imgs/red flower/Home.png';
-import MenuImgWebP from '../assets/imgs/red flower/Menu.webp';
-import MenuImgPNG from '../assets/imgs/red flower/Menu.png';
-import ProductListingImgWebP from '../assets/imgs/red flower/Product Listing Page.webp';
-import ProductListingImgPNG from '../assets/imgs/red flower/Product Listing Page.png';
-import ProductListingFiltersImgWebP from '../assets/imgs/red flower/Product Listing Page & Filters.webp';
-import ProductListingFiltersImgPNG from '../assets/imgs/red flower/Product Listing Page & Filters.png';
-import ProductViewImgWebP from '../assets/imgs/red flower/Product View.webp';
-import ProductViewImgPNG from '../assets/imgs/red flower/Product View.png';
-import ProductViewExtendedImgWebP from '../assets/imgs/red flower/Product View extended.webp';
-import ProductViewExtendedImgPNG from '../assets/imgs/red flower/Product View extended.png';
-import CartImgWebP from '../assets/imgs/red flower/CART.webp';
-import CartImgPNG from '../assets/imgs/red flower/CART.png';
-import AccountImgWebP from '../assets/imgs/red flower/ACCOUNT.webp';
-import AccountImgPNG from '../assets/imgs/red flower/ACCOUNT.png';
-import OrdersImgWebP from '../assets/imgs/red flower/ORDERS.webp';
-import OrdersImgPNG from '../assets/imgs/red flower/ORDERS.png';
-import LoginImgWebP from '../assets/imgs/red flower/Login.webp';
-import LoginImgPNG from '../assets/imgs/red flower/Login.png';
-import LogoutImgWebP from '../assets/imgs/red flower/Logout.webp';
-import LogoutImgPNG from '../assets/imgs/red flower/Logout.png';
+import { getAssetUrl } from '../utils/assets';
+
+const HomeImgWebP = getAssetUrl('imgs/red flower/Home.webp');
+const HomeImgPNG = getAssetUrl('imgs/red flower/Home.png');
+const MenuImgWebP = getAssetUrl('imgs/red flower/Menu.webp');
+const MenuImgPNG = getAssetUrl('imgs/red flower/Menu.png');
+const ProductListingImgWebP = getAssetUrl('imgs/red flower/Product Listing Page.webp');
+const ProductListingImgPNG = getAssetUrl('imgs/red flower/Product Listing Page.png');
+const ProductListingFiltersImgWebP = getAssetUrl('imgs/red flower/Product Listing Page & Filters.webp');
+const ProductListingFiltersImgPNG = getAssetUrl('imgs/red flower/Product Listing Page & Filters.png');
+const ProductViewImgWebP = getAssetUrl('imgs/red flower/Product View.webp');
+const ProductViewImgPNG = getAssetUrl('imgs/red flower/Product View.png');
+const ProductViewExtendedImgWebP = getAssetUrl('imgs/red flower/Product View extended.webp');
+const ProductViewExtendedImgPNG = getAssetUrl('imgs/red flower/Product View extended.png');
+const CartImgWebP = getAssetUrl('imgs/red flower/CART.webp');
+const CartImgPNG = getAssetUrl('imgs/red flower/CART.png');
+const AccountImgWebP = getAssetUrl('imgs/red flower/ACCOUNT.webp');
+const AccountImgPNG = getAssetUrl('imgs/red flower/ACCOUNT.png');
+const OrdersImgWebP = getAssetUrl('imgs/red flower/ORDERS.webp');
+const OrdersImgPNG = getAssetUrl('imgs/red flower/ORDERS.png');
+const LoginImgWebP = getAssetUrl('imgs/red flower/Login.webp');
+const LoginImgPNG = getAssetUrl('imgs/red flower/Login.png');
+const LogoutImgWebP = getAssetUrl('imgs/red flower/Logout.webp');
+const LogoutImgPNG = getAssetUrl('imgs/red flower/Logout.png');
 
 const RedFlower = () => {
   const navigate = useNavigate();
@@ -42,13 +44,13 @@ const RedFlower = () => {
       <button className="project-back-button" onClick={handleGoBack}>
         ← Back
       </button>
-      
+
       {/* Hero Section - Title at Top */}
       <div className="rf-hero-top">
         <div className="rf-hero-badge">UI/UX Design Case Study</div>
         <h1 className="rf-title">RED FLOWER</h1>
         <p className="rf-subtitle">
-          A comprehensive e-commerce platform redesign focused on creating an intuitive, 
+          A comprehensive e-commerce platform redesign focused on creating an intuitive,
           delightful shopping experience through thoughtful UX research and modern UI design.
         </p>
       </div>
@@ -58,8 +60,8 @@ const RedFlower = () => {
         <div className="rf-hero-left">
           <h2 className="rf-section-title-left">Project Overview</h2>
           <p className="rf-text-large">
-            Red Flower represents a complete redesign of an e-commerce platform with a focus on 
-            creating a premium, user-centric shopping experience. This project was driven by extensive 
+            Red Flower represents a complete redesign of an e-commerce platform with a focus on
+            creating a premium, user-centric shopping experience. This project was driven by extensive
             user research, competitive analysis, and a deep understanding of modern e-commerce patterns.
           </p>
           <div className="rf-info-boxes-container">
@@ -88,9 +90,9 @@ const RedFlower = () => {
               <div className="rf-insight-compact">
                 <span className="rf-insight-icon-compact">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <line x1="12" y1="8" x2="12" y2="12"/>
-                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
                   </svg>
                 </span>
                 <div>
@@ -101,8 +103,8 @@ const RedFlower = () => {
               <div className="rf-insight-compact">
                 <span className="rf-insight-icon-compact">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                    <line x1="12" y1="18" x2="12.01" y2="18"/>
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                    <line x1="12" y1="18" x2="12.01" y2="18" />
                   </svg>
                 </span>
                 <div>
@@ -113,8 +115,8 @@ const RedFlower = () => {
               <div className="rf-insight-compact">
                 <span className="rf-insight-icon-compact">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="11" cy="11" r="8"/>
-                    <path d="m21 21-4.35-4.35"/>
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
                   </svg>
                 </span>
                 <div>
@@ -125,9 +127,9 @@ const RedFlower = () => {
               <div className="rf-insight-compact">
                 <span className="rf-insight-icon-compact">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 12l10 5 10-5"/>
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5" />
+                    <path d="M2 12l10 5 10-5" />
                   </svg>
                 </span>
                 <div>
@@ -252,7 +254,7 @@ const RedFlower = () => {
       {/* Screens - Full Width Showcase */}
       <section className="rf-section-full">
         <h2 className="rf-section-title-center">Design Showcase</h2>
-        
+
         <div className="rf-screen-showcase-full">
           <div className="rf-screen-category">
             <div className="rf-category-header">
@@ -474,8 +476,8 @@ const RedFlower = () => {
           <div className="rf-journey-step">
             <div className="rf-journey-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                <polyline points="9 22 9 12 15 12 15 22"/>
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
               </svg>
             </div>
             <h4>Landing</h4>
@@ -483,15 +485,15 @@ const RedFlower = () => {
           </div>
           <div className="rf-journey-arrow">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
             </svg>
           </div>
           <div className="rf-journey-step">
             <div className="rf-journey-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="11" cy="11" r="8"/>
-                <path d="m21 21-4.35-4.35"/>
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
               </svg>
             </div>
             <h4>Browse</h4>
@@ -499,15 +501,15 @@ const RedFlower = () => {
           </div>
           <div className="rf-journey-arrow">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
             </svg>
           </div>
           <div className="rf-journey-step">
             <div className="rf-journey-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                <circle cx="12" cy="12" r="3"/>
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
               </svg>
             </div>
             <h4>View</h4>
@@ -515,16 +517,16 @@ const RedFlower = () => {
           </div>
           <div className="rf-journey-arrow">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
             </svg>
           </div>
           <div className="rf-journey-step">
             <div className="rf-journey-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="9" cy="21" r="1"/>
-                <circle cx="20" cy="21" r="1"/>
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                <circle cx="9" cy="21" r="1" />
+                <circle cx="20" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
               </svg>
             </div>
             <h4>Cart</h4>
@@ -532,15 +534,15 @@ const RedFlower = () => {
           </div>
           <div className="rf-journey-arrow">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
             </svg>
           </div>
           <div className="rf-journey-step">
             <div className="rf-journey-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
-                <line x1="1" y1="10" x2="23" y2="10"/>
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                <line x1="1" y1="10" x2="23" y2="10" />
               </svg>
             </div>
             <h4>Checkout</h4>

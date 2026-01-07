@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ProjectPages.css';
-import ss3 from '../assets/imgs/ss3.png';
-import ss4 from '../assets/imgs/ss4.png';
+import { getAssetUrl } from '../utils/assets';
+const ss3 = getAssetUrl('imgs/ss3.png');
+const ss4 = getAssetUrl('imgs/ss4.png');
 
 const RateMyDorm = () => {
   const navigate = useNavigate();
@@ -34,9 +35,9 @@ const RateMyDorm = () => {
         <section className="project-section">
           <h2>Project Overview</h2>
           <p>
-          This project is a conceptual exploration of two popular mobile 
-            applications, redesigned to solve specific UX challenges. 
-            The goal was to analyze existing user flows and propose new, 
+            This project is a conceptual exploration of two popular mobile
+            applications, redesigned to solve specific UX challenges.
+            The goal was to analyze existing user flows and propose new,
             high-fidelity designs.
           </p>
         </section>
@@ -45,19 +46,19 @@ const RateMyDorm = () => {
           <h2>Key Design Decisions</h2>
           <ul className="feature-list">
             <li>
-              <strong>Spotify:</strong> Prototyped a redesign by blending Apple Music's 
+              <strong>Spotify:</strong> Prototyped a redesign by blending Apple Music's
               clean interface with a modern frosted-glass UI aesthetic.
             </li>
             <li>
-              <strong>Spotify:</strong> Focused on improving one-handed navigation 
+              <strong>Spotify:</strong> Focused on improving one-handed navigation
               and creating a more intuitive "favourite" action.
             </li>
             <li>
-              <strong>Apple Pay:</strong> Designed a localized product concept for 
+              <strong>Apple Pay:</strong> Designed a localized product concept for
               'Apple Pay for India,' aligning with regional user behaviors.
             </li>
             <li>
-              <strong>Apple Pay:</strong> Created a seamless UX that integrated a 
+              <strong>Apple Pay:</strong> Created a seamless UX that integrated a
               prominent QR scanner and a peer-to-peer payment flow.
             </li>
           </ul>
@@ -66,9 +67,9 @@ const RateMyDorm = () => {
         <section className="project-section">
           <h2>Design Process & Tools</h2>
           <p>
-            The entire design process was executed in Figma. This included 
-            analyzing existing app screenshots, wireframing new user flows, 
-            and building high-fidelity, interactive prototypes to test 
+            The entire design process was executed in Figma. This included
+            analyzing existing app screenshots, wireframing new user flows,
+            and building high-fidelity, interactive prototypes to test
             the conceptual solutions.
           </p>
         </section>

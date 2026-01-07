@@ -5,8 +5,9 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ProjectPages.css'; // Shared styles for project pages
-import ss1 from '../assets/imgs/ss1.png';
-import ss2 from '../assets/imgs/ss2.png';
+import { getAssetUrl } from '../utils/assets';
+const ss1 = getAssetUrl('imgs/ss1.png');
+const ss2 = getAssetUrl('imgs/ss2.png');
 
 const GradGear = () => {
   const navigate = useNavigate();
@@ -68,9 +69,9 @@ const GradGear = () => {
 
         <section className="project-section">
           <h2>Links</h2>
-          
+
           <div className="project-links">
-          <a href="https://gradgear-1-frontend.onrender.com" className="project-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://gradgear-1-frontend.onrender.com" className="project-link" target="_blank" rel="noopener noreferrer">
               Live Demo
             </a>
             <a href="https://github.com/parth1512/GradGear-" className="project-link" target="_blank" rel="noopener noreferrer">

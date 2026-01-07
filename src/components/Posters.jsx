@@ -4,30 +4,32 @@ import './ProjectPages.css';
 import './Posters.css';
 
 // Import all poster images - WebP with PNG fallbacks
-import Poster1WebP from '../assets/imgs/Posters/CRM AD.webp';
-import Poster1PNG from '../assets/imgs/Posters/CRM AD.png';
-import Poster2WebP from '../assets/imgs/Posters/Instagram post - 28.webp';
-import Poster2PNG from '../assets/imgs/Posters/Instagram post - 28.png';
-import Poster3WebP from '../assets/imgs/Posters/Instagram post - 33.webp';
-import Poster3PNG from '../assets/imgs/Posters/Instagram post - 33.png';
-import Poster4WebP from '../assets/imgs/Posters/LLMS.webp';
-import Poster4PNG from '../assets/imgs/Posters/LLMS.png';
-import Poster5WebP from '../assets/imgs/Posters/No toc.webp';
-import Poster5PNG from '../assets/imgs/Posters/No toc.png';
-import Poster6WebP from '../assets/imgs/Posters/Own color Scheme.webp';
-import Poster6PNG from '../assets/imgs/Posters/Own color Scheme.png';
-import Poster7WebP from '../assets/imgs/Posters/SIMPLE SIGN UP.webp';
-import Poster7PNG from '../assets/imgs/Posters/SIMPLE SIGN UP.png';
-import Poster8WebP from '../assets/imgs/Posters/Twitter post - 15.webp';
-import Poster8PNG from '../assets/imgs/Posters/Twitter post - 15.png';
-import Poster9WebP from '../assets/imgs/Posters/Twitter post - 42 1.webp';
-import Poster9PNG from '../assets/imgs/Posters/Twitter post - 42 1.png';
-import Poster10WebP from '../assets/imgs/Posters/Twitter post - 47.webp';
-import Poster10PNG from '../assets/imgs/Posters/Twitter post - 47.png';
-import Poster11WebP from '../assets/imgs/Posters/Vishal - Instagram.webp';
-import Poster11PNG from '../assets/imgs/Posters/Vishal - Instagram.png';
-import Poster12WebP from '../assets/imgs/Posters/WITH & WITHOUT.webp';
-import Poster12PNG from '../assets/imgs/Posters/WITH & WITHOUT.png';
+import { getAssetUrl } from '../utils/assets';
+
+const Poster1WebP = getAssetUrl('imgs/Posters/CRM AD.webp');
+const Poster1PNG = getAssetUrl('imgs/Posters/CRM AD.png');
+const Poster2WebP = getAssetUrl('imgs/Posters/Instagram post - 28.webp');
+const Poster2PNG = getAssetUrl('imgs/Posters/Instagram post - 28.png');
+const Poster3WebP = getAssetUrl('imgs/Posters/Instagram post - 33.webp');
+const Poster3PNG = getAssetUrl('imgs/Posters/Instagram post - 33.png');
+const Poster4WebP = getAssetUrl('imgs/Posters/LLMS.webp');
+const Poster4PNG = getAssetUrl('imgs/Posters/LLMS.png');
+const Poster5WebP = getAssetUrl('imgs/Posters/No toc.webp');
+const Poster5PNG = getAssetUrl('imgs/Posters/No toc.png');
+const Poster6WebP = getAssetUrl('imgs/Posters/Own color Scheme.webp');
+const Poster6PNG = getAssetUrl('imgs/Posters/Own color Scheme.png');
+const Poster7WebP = getAssetUrl('imgs/Posters/SIMPLE SIGN UP.webp');
+const Poster7PNG = getAssetUrl('imgs/Posters/SIMPLE SIGN UP.png');
+const Poster8WebP = getAssetUrl('imgs/Posters/Twitter post - 15.webp');
+const Poster8PNG = getAssetUrl('imgs/Posters/Twitter post - 15.png');
+const Poster9WebP = getAssetUrl('imgs/Posters/Twitter post - 42 1.webp');
+const Poster9PNG = getAssetUrl('imgs/Posters/Twitter post - 42 1.png');
+const Poster10WebP = getAssetUrl('imgs/Posters/Twitter post - 47.webp');
+const Poster10PNG = getAssetUrl('imgs/Posters/Twitter post - 47.png');
+const Poster11WebP = getAssetUrl('imgs/Posters/Vishal - Instagram.webp');
+const Poster11PNG = getAssetUrl('imgs/Posters/Vishal - Instagram.png');
+const Poster12WebP = getAssetUrl('imgs/Posters/WITH & WITHOUT.webp');
+const Poster12PNG = getAssetUrl('imgs/Posters/WITH & WITHOUT.png');
 
 const posters = [
   { id: 1, imageWebP: Poster1WebP, imagePNG: Poster1PNG, title: 'CRM AD', category: 'Marketing', size: 'large' },
@@ -60,8 +62,8 @@ const Posters = () => {
 
   const categories = ['All', 'Social Media', 'Marketing', 'Technical', 'Design', 'UI/UX'];
 
-  const filteredPosters = selectedCategory === 'All' 
-    ? posters 
+  const filteredPosters = selectedCategory === 'All'
+    ? posters
     : posters.filter(poster => poster.category === selectedCategory);
 
   const openLightbox = (poster) => {
@@ -86,8 +88,8 @@ const Posters = () => {
           <div className="posters-badge">Graphic Design Portfolio</div>
           <h1 className="posters-title">POSTERS</h1>
           <p className="posters-subtitle">
-            A collection of creative poster designs for various clients and organizations, 
-            including work for KUBERNS and IEEE CS. Showcasing diverse styles, from social 
+            A collection of creative poster designs for various clients and organizations,
+            including work for KUBERNS and IEEE CS. Showcasing diverse styles, from social
             media graphics to technical illustrations and marketing materials.
           </p>
           <div className="posters-stats">
@@ -105,16 +107,16 @@ const Posters = () => {
             </div>
           </div>
           <div className="posters-cta">
-            <a 
-              href="https://www.instagram.com/ieeecs_vit/" 
-              target="_blank" 
+            <a
+              href="https://www.instagram.com/ieeecs_vit/"
+              target="_blank"
               rel="noopener noreferrer"
               className="instagram-button"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
               </svg>
               View on Instagram
             </a>

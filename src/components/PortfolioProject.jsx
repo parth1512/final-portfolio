@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ProjectPages.css';
-import projectShot1 from '../assets/imgs/ss5.png';
-import projectShot2 from '../assets/imgs/ss6.png';
+import { getAssetUrl } from '../utils/assets';
+const projectShot1 = getAssetUrl('imgs/ss5.png');
+const projectShot2 = getAssetUrl('imgs/ss6.png');
 
 const PortfolioProject = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const PortfolioProject = () => {
         <section className="project-section">
           <h2>Project Overview</h2>
           <p>
-          A dedicated registration website built for Yantra Hack, enabling participants to seamlessly register for the event with a clean, user-friendly interface and responsive design. The platform centralizes all event-related information, simplifies onboarding, and ensures smooth data handling with a structured flow tailored specifically for large-scale hackathon registrations.
+            A dedicated registration website built for Yantra Hack, enabling participants to seamlessly register for the event with a clean, user-friendly interface and responsive design. The platform centralizes all event-related information, simplifies onboarding, and ensures smooth data handling with a structured flow tailored specifically for large-scale hackathon registrations.
           </p>
         </section>
 
